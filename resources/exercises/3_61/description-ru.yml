@@ -1,0 +1,45 @@
+name: 'Процедура invert-unit-series'
+description: |
+  <p>Пусть 
+  <code>S</code>
+   будет степенным рядом (упражнение 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.59')) }}">3.59</a>
+  ) с постоянным членом 
+  <code>1</code>
+  . Предположим, что мы хотим найти степенной ряд 
+  <code>1/S</code>
+  , то есть такой ряд 
+  <code>X</code>
+  , что 
+  <code>S · X = 1</code>
+  . Запишем 
+  <code>S = 1 + SR</code>
+  , где 
+  <code>SR</code>
+   — часть 
+  <code>S</code>
+   после постоянного члена. Тогда мы можем решить уравнение для 
+  <code>X</code>
+   так:
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/3_61.gif") }}" alt="3.61">
+  <p>Другими словами, 
+  <code>X</code>
+   есть степенной ряд с постоянным членом 
+  <code>1</code>
+  , чьи члены с более высокими степенями определяются как минус произведение 
+  <code>SR</code>
+   и 
+  <code>X</code>
+  . Воспользовавшись этим, напишите процедуру 
+  <code>invert-unit-series</code>
+  , которая вычисляет 
+  <code>1/S</code>
+   для степенного ряда 
+  <code>S</code>
+   с постоянным членом 
+  <code>1</code>
+  . Вам потребуется 
+  <code>mul-series</code>
+   из упражнения 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.60')) }}">3.60</a></p>

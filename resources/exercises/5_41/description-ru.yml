@@ -1,0 +1,21 @@
+name: 'Процедура find-variable'
+description: |
+  <p>Напишите процедуру 
+  <code>find-variable</code>
+  , которая в качестве аргументов принимает переменную и окружение времени компиляции, а возвращает лексический адрес переменной по отношению к этому окружению. Например, во фрагменте программы, который приведен выше, окружение времени компиляции при обработке выражения 
+  <code>&lt;e1&gt;</code>
+   равно 
+  <code>((y z) (a b c d e) (x y))</code>
+  . 
+  <code>Find-variable</code>
+   должна давать
+  </p>
+  <pre><code>(find-variable 'c '((y z) (a b c d e) (x y)))
+  <i>(1 2)</i>
+
+  (find-variable 'x '((y z) (a b c d e) (x y)))
+  <i>(2 0)</i>
+
+  (find-variable 'w '((y z) (a b c d e) (x y)))
+  <i>not-found</i>
+  </code></pre>

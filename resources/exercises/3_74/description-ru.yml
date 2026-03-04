@@ -1,0 +1,47 @@
+name: 'Переходы входного сигнала через ноль'
+description: |
+  <p>Лиза П. Хакер разрабатывает систему для обработки сигналов, приходящих от физических сенсоров. Один из важных инструментов, который она хочет построить, — это сигнал, описывающий переходы входного сигнала через ноль (zero crossings). Выходной сигнал должен равняться 
+  <code>+1</code>
+  , когда сигнал на входе меняется с отрицательного на положительный, 
+  <code>-1</code>
+  , когда сигнал меняется с положительного на отрицательный, и 
+  <code>0</code>
+   в остальных случаях. (Допустим, что знак нулевого входа положителен). Например, типичный входной сигнал и связанный с ним сигнал перехода через ноль могут выглядеть так:
+  </p>
+  <pre><code>...1  2  1.5  1  0.5  -0.1  -2  -3  -2  -0.5  0.2  3  4 ...
+  ...0  0   0   0    0    -1   0   0   0    0    1   0  0 ...
+  </code></pre>
+  <p>В Лизиной системе сигнал от сенсора представляется как поток 
+  <code>sense-data</code>
+  , а 
+  <code>zero-crossings</code>
+   представляет соответствующий поток пересечений нуля. Для начала Лиза пишет процедуру 
+  <code>sign-change-detector</code>
+  , которая берет два значения в качестве аргументов и, сравнив их знаки, выдает 
+  <code>0</code>
+  , 
+  <code>1</code>
+   или 
+  <code>-1</code>
+  . Затем она строит поток переходов через ноль следующим образом:
+  </p>
+  <pre><code>(define (make-zero-crossings input-stream last-value)
+    (cons-stream
+     (sign-change-detector (stream-car input-stream) last-value)
+     (make-zero-crossings (stream-cdr input-stream)
+                          (stream-car input-stream))))
+
+  (define zero-crossings (make-zero-crossings sense-data 0))
+  </code></pre>
+  <p>Мимо проходит Лизина начальница Ева Лу Атор и замечает, что программа приблизительно равносильна следующей, написанной с использованием обобщенной версии 
+  <code>stream-map</code>
+   из упражнения 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.50')) }}">3.50</a>
+  :</p>
+  <pre><code>(define zero-crossings
+    (stream-map sign-change-detector sense-data &lt;expression&gt;))
+  </code></pre>
+  <p>Завершите программу, вставив необходимое 
+  <code>&lt;expression&gt;</code>
+  .
+  </p>

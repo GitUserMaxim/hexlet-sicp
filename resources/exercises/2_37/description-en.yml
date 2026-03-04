@@ -1,0 +1,56 @@
+name: 'Matrix operations'
+description: |
+  <p>Suppose we represent vectors 
+  <code>v = (vᵢ)</code>
+   as sequences of numbers, and matrices 
+  <code>m = (mᵢⱼ)</code>
+   as sequences of vectors (the rows of the matrix). For example, the matrix
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/2_37.gif") }}" alt="2.37">
+  <p>is represented as the sequence 
+  <code>((1 2 3 4) (4 5 6 6) (6 7 8 9))</code>
+  . With this representation, we can use sequence operations to concisely express the basic matrix and vector operations. These operations (which are described in any book on matrix algebra) are the following:
+  </p>
+  <p>
+  <code>(dot-product v w)</code>
+   returns the sum 
+  <code>∑ᵢvᵢwᵢ</code>
+  </p>
+  <p>
+  <code>(matrix-*-vector m v)</code>
+   returns the vector 
+  <code>t</code>
+  , where 
+  <code>tᵢ = ∑ⱼmᵢⱼvᵢ</code>
+  </p>
+  <p>
+  <code>(matrix-*-matrix m n)</code>
+   returns the matrix 
+  <code>p</code>
+  , where 
+  <code>pᵢⱼ = ∑ₖmᵢₖnₖⱼ</code>
+  </p>
+  <p>
+  <code>(transpose m)</code>
+   returns the matrix 
+  <code>n</code>
+  , where 
+  <code>nᵢⱼ = mⱼᵢ</code>
+  </p>
+  <p>We can define the dot product as</p>
+  <pre><code>(define (dot-product v w)
+    (accumulate + 0 (map * v w)))
+  </code></pre>
+  <p>Fill in the missing expressions in the following procedures for computing the other matrix operations. (The procedure 
+  <code>accumulate-n</code>
+   is defined in exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.36')) }}">2.36</a>
+  .)</p>
+  <pre><code>(define (matrix-*-vector m v)
+    (map &lt;??&gt; m))
+  (define (transpose mat)
+    (accumulate-n &lt;??&gt; &lt;??&gt; mat))
+  (define (matrix-*-matrix m n)
+    (let ((cols (transpose n)))
+      (map &lt;??&gt; m)))
+  </code></pre>

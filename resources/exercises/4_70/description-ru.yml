@@ -1,0 +1,20 @@
+name: 'Цель выражений let в процедурах add-assertion! и add-rule!'
+description: |
+  <p>Какова цель выражений 
+  <code>let</code>
+   в процедурах 
+  <code>add-assertion!</code>
+   и 
+  <code>add-rule!</code>
+  ? Что неправильно в следующем варианте 
+  <code>add-assertion!</code>
+  ? Подсказка: вспомните определение бесконечного потока единиц из раздела 3.5.2: 
+  <code>(define ones (cons-stream 1 ones))</code>
+  .
+  </p>
+  <pre><code>(define (add-assertion! assertion)
+    (store-assertion-in-index assertion)
+    (set! THE-ASSERTIONS
+          (cons-stream assertion THE-ASSERTIONS))
+    'ok)
+  </code></pre>

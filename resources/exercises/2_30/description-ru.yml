@@ -1,0 +1,24 @@
+name: 'Дерево квадратов'
+description: |
+  <p>Определите процедуру 
+  <code>square-tree</code>
+  , подобную процедуре 
+  <code>square-list</code>
+   из упражнения 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.21')) }}">2.21</a>
+  . А именно, 
+  <code>square-tree</code>
+   должна вести себя следующим образом:
+  </p>
+  <pre><code>(square-tree
+   (list 1
+         (list 2 (list 3 4) 5)
+         (list 6 7)))
+  <i>(1 (4 (9 16) 25) (36 49))</i>
+  </code></pre>
+  <p>Определите 
+  <code>square-tree</code>
+   как прямо (то есть без использования процедур высших порядков), так и с помощью 
+  <code>map</code>
+   и рекурсии.
+  </p>

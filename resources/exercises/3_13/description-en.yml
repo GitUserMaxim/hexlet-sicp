@@ -1,0 +1,25 @@
+name: 'Make-cycle procedure'
+description: |
+  <p>
+      Consider the following 
+      <code>make-cycle</code>
+       procedure, which uses the 
+      <code>last-pair</code>
+       procedure defined in exercise 
+      <a title="3.12" href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.12')) }}">3.12</a>
+      :
+  </p>
+  <pre><code>(define (make-cycle x)
+    (set-cdr! (last-pair x) x)
+    x)</code></pre>
+  <p>
+      Draw a box-and-pointer diagram that shows the structure 
+      <code>z</code>
+       created by
+  </p>
+  <pre><code>(define z (make-cycle (list 'a 'b 'c)))</code></pre>
+  <p>
+      What happens if we try to compute 
+      <code>(last-pair z)</code>
+      ?
+  </p>

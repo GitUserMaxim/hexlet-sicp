@@ -1,0 +1,13 @@
+name: Squarer
+description: |
+  <p>
+      Louis Reasoner wants to build a squarer, a constraint device with two terminals such that the value of connector
+      <code>b</code>
+      on the second terminal will always be the square of the value
+      <code>a</code>
+      on the first terminal. He proposes the following simple device made from a multiplier:
+  </p>
+  <pre><code>(define (squarer a b)
+    (multiplier a a b))
+  </code></pre>
+  <p>There is a serious flaw in this idea. Explain.</p>

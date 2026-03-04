@@ -1,0 +1,21 @@
+name: 'Deep reverse'
+description: |
+  <p>Modify your 
+  <code>reverse</code>
+   procedure of exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.18')) }}">2.18</a>
+   to produce a 
+  <code>deep-reverse</code>
+   procedure that takes a list as argument and returns as its value the list with its elements reversed and with all sublists deep-reversed as well. For example,
+  </p>
+  <pre><code>(define x (list (list 1 2) (list 3 4)))
+
+  x
+  <i>((1 2) (3 4))</i>
+
+  (reverse x)
+  <i>((3 4) (1 2))</i>
+
+  (deep-reverse x)
+  <i>((4 3) (2 1))</i>
+  </code></pre>

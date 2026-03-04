@@ -1,0 +1,29 @@
+name: 'Окружения процедуры вычисления факториала'
+description: |
+  <p>
+      В разделе 
+      <a href="{{ getChapterOriginLinkForNumber('1.2.1') }}">1.2.1</a>
+        мы с помощью подстановочной модели анализировали две процедуры вычисления факториала, рекурсивную
+  </p>
+  <pre><code>(define (factorial n)
+    (if (= n 1)
+        1
+        (* n (factorial (- n 1)))))</code></pre>
+  <p>
+       и итеративную
+  </p>
+  <pre><code>(define (factorial n)
+    (fact-iter 1 1 n))
+  (define (fact-iter product counter max-count)
+    (if (> counter max-count)
+        product
+        (fact-iter (* counter product)
+                   (+ counter 1)
+                   max-count)))</code></pre>
+  <p>
+      Продемонстрируйте, какие структуры окружений возникнут при вычислении 
+      <code>(factorial 6)</code>
+       с каждой из версий процедуры 
+      <code>factorial</code>
+      .
+  </p>

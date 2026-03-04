@@ -1,0 +1,29 @@
+name: 'Factorial procedure environments'
+description: |
+  <p>
+      In section 
+      <a href="{{ getChapterOriginLinkForNumber('1.2.1') }}">1.2.1</a>
+       we used the substitution model to analyze two procedures for computing factorials, a recursive version
+  </p>
+  <pre><code>(define (factorial n)
+    (if (= n 1)
+        1
+        (* n (factorial (- n 1)))))</code></pre>
+  <p>
+       and an iterative version
+  </p>
+  <pre><code>(define (factorial n)
+    (fact-iter 1 1 n))
+  (define (fact-iter product counter max-count)
+    (if (> counter max-count)
+        product
+        (fact-iter (* counter product)
+                   (+ counter 1)
+                   max-count)))</code></pre>
+  <p>
+      Show the environment structures created by evaluating 
+      <code>(factorial 6)</code>
+       using each version of the 
+      <code>factorial</code>
+      .
+  </p>

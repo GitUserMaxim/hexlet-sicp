@@ -1,0 +1,12 @@
+name: 'Бесконечный цикл'
+description: |
+  <p>Хьюго Дум по ошибке уничтожил в базе данных правило подчиняется (раздел 4.4.1). Обнаружив это, он быстро набивает правило заново, только, к сожалению, по ходу дела вносит небольшое изменение:</p>
+  <pre><code>(rule (outranked-by ?staff-person ?boss)
+        (or (supervisor ?staff-person ?boss)
+            (and (outranked-by ?middle-manager ?boss)
+                 (supervisor ?staff-person ?middle-manager))))
+  </code></pre>
+  <p>Сразу после того, как Хьюго ввел информацию в систему, Кон Фиден хочет посмотреть, кому подчиняется Бен Битобор (Ben Bitdiddle). Он вводит запрос</p>
+  <pre><code>(outranked-by (Bitdiddle Ben) ?who)
+  </code></pre>
+  <p>После ответа система проваливается в бесконечный цикл. Объясните, почему.</p>

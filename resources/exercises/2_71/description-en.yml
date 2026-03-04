@@ -1,0 +1,14 @@
+name: 'Frequencies of the symbols'
+description: |
+  <p>Suppose we have a Huffman tree for an alphabet of 
+  <code>n</code>
+   symbols, and that the relative frequencies of the symbols are 
+  <code>1, 2, 4, ..., 2ⁿ⁻¹</code>
+  . Sketch the tree for 
+  <code>n = 5</code>
+  ; for 
+  <code>n = 10</code>
+  . In such a tree (for general 
+  <code>n</code>
+  ) how many bits are required to encode the most frequent symbol? the least frequent symbol?
+  </p>

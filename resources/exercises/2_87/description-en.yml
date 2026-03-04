@@ -1,0 +1,8 @@
+name: '=zero? for polynomials'
+description: |
+  <p>Install 
+  <code>=zero?</code>
+   for polynomials in the generic arithmetic package. This will allow 
+  <code>adjoin-term</code>
+   to work for polynomials with coefficients that are themselves polynomials.
+  </p>

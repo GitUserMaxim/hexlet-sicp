@@ -1,0 +1,49 @@
+name: 'Эффективность компиляции для процедуры Фибоначчи с древовидной рекурсией'
+description: |
+  <p>Проведите анализ, подобный анализу из упражнения <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.45')) }}">5.45</a>
+  , и определите эффективность компиляции для процедуры Фибоначчи с древовидной рекурсией</p>
+  <pre><code>(define (fib n)
+    (if (< n 2)
+        n
+        (+ (fib (- n 1)) (fib (- n 2)))))
+  </code></pre>
+  <p>по сравнению с эффективностью работы специализированной машины Фибоначчи с рисунка 5.12. (Измерения интерпретируемой версии см. в упражнении <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.29')) }}">5.29</a>
+  .) Для процедуры Фибоначчи время растет в нелинейной зависимости от 
+  <code>n</code>
+  ; следовательно, отношение числа стековых операций не будет приближаться к независимому от 
+  <code>n</code>
+   пределу.
+  </p>
+  <pre><code>(controller
+     (assign continue (label fib-done))
+   fib-loop
+     (test (op <) (reg n) (const 2))
+     (branch (label immediate-answer))
+     ;; set up to compute Fib(n - 1)
+     (save continue)
+     (assign continue (label afterfib-n-1))
+     (save n)                           ; save old value of n
+     (assign n (op -) (reg n) (const 1)); clobber n to n - 1
+     (goto (label fib-loop))            ; perform recursive call
+   afterfib-n-1                         ; upon return, val contains Fib(n - 1)
+     (restore n)
+     (restore continue)
+     ;; set up to compute Fib(n - 2)
+     (assign n (op -) (reg n) (const 2))
+     (save continue)
+     (assign continue (label afterfib-n-2))
+     (save val)                         ; save Fib(n - 1)
+     (goto (label fib-loop))
+   afterfib-n-2                         ; upon return, val contains Fib(n - 2)
+     (assign n (reg val))               ; n now contains Fib(n - 2)
+     (restore val)                      ; val now contains Fib(n - 1)
+     (restore continue)
+     (assign val                        ;  Fib(n - 1) +  Fib(n - 2)
+             (op +) (reg val) (reg n))
+     (goto (reg continue))              ; return to caller, answer is in val
+   immediate-answer
+     (assign val (reg n))               ; base case:  Fib(n) = n
+     (goto (reg continue))
+   fib-done)
+  </code></pre>
+  Рис. 5.12. Контроллер машины для вычисления чисел Фибоначчи.</p>

@@ -1,0 +1,14 @@
+name: 'Процедура partial-sums'
+description: |
+  <p>Определите процедуру 
+  <code>partial-sums</code>
+  , которая в качестве аргумента берет поток 
+  <code>S</code>
+  , а возвращает поток, элементы которого равны 
+  <code>S₀, S₀ + S₁, S₀ + S₁ + S₂, ...</code>
+  . Например, 
+  <code>(partial-sums integers)</code>
+   должно давать поток 
+  <code>1, 3, 6, 10, 15 ...</code>
+  .
+  </p>

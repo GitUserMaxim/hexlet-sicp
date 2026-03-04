@@ -1,0 +1,8 @@
+name: 'Конструктор make-from-mag-ang в стиле передачи сообщений'
+description: |
+  <p>Реализуйте в стиле передачи сообщений конструктор 
+  <code>make-from-mag-ang</code>
+  . Он должен быть аналогичен приведенной выше процедуре 
+  <code>make-from-real-imag</code>
+  .
+  </p>

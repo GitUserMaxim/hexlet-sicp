@@ -1,0 +1,23 @@
+name: 'Optimization of queens'
+description: |
+  <p>Louis Reasoner is having a terrible time doing exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.42')) }}">2.42</a>
+  . His 
+  <code>queens</code>
+   procedure seems to work, but it runs extremely slowly. (Louis never does manage to wait long enough for it to solve even the 
+  <code>6 × 6</code>
+   case.) When Louis asks Eva Lu Ator for help, she points out that he has interchanged the order of the nested mappings in the 
+  <code>flatmap</code>
+  , writing it as
+  </p>
+  <pre><code>(flatmap
+   (lambda (new-row)
+     (map (lambda (rest-of-queens)
+            (adjoin-position new-row k rest-of-queens))
+          (queen-cols (- k 1))))
+   (enumerate-interval 1 board-size))
+  </code></pre>
+  <p>Explain why this interchange makes the program run slowly. Estimate how long it will take Louis's program to solve the eight-queens puzzle, assuming that the program in exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.42')) }}">2.42</a>
+   solves the puzzle in time 
+  <code>T</code>
+  .
+  </p>

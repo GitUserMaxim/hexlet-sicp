@@ -1,0 +1,24 @@
+name: 'Slow procedure'
+description: |
+  <p>Louis Reasoner is having great difficulty doing exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('1.24')) }}">1.24</a>
+  . His 
+  <code>fast-prime?</code>
+   test seems to run more slowly than his 
+  <code>prime?</code>
+   test. Louis calls his friend Eva Lu Ator over to help. When they examine Louis's code, they find that he has rewritten the 
+  <code>expmod</code>
+   procedure to use an explicit multiplication, rather than calling 
+  <code>square</code>
+  :
+  </p>
+  <pre><code>(define (expmod base exp m)
+    (cond ((= exp 0) 1)
+          ((even? exp)
+           (remainder (* (expmod base (/ exp 2) m)
+                         (expmod base (/ exp 2) m))
+                      m))
+          (else
+           (remainder (* base (expmod base (- exp 1) m))
+                      m)))
+  </code></pre>
+  <p>``I don't see what difference that could make,'' says Louis. ``I do.'' says Eva. ``By writing the procedure like that, you have transformed the Θ(log n) process into a Θ(n) process.'' Explain. </p>

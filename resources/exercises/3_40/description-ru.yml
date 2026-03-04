@@ -1,0 +1,19 @@
+name: 'Все возможные значения x'
+description: |
+  <p>Укажите все возможные значения 
+  <code>x</code>
+   при выполнении
+  </p>
+  <pre><code>(define x 10)
+
+  (parallel-execute (lambda () (set! x (* x x)))
+                    (lambda () (set! x (* x x x))))
+  </code></pre>
+  <p>Какие из них сохраняются, если вместо этого мы выполняем сериализованные процедуры:</p>
+  <pre><code>(define x 10)
+
+  (define s (make-serializer))
+
+  (parallel-execute (s (lambda () (set! x (* x x))))
+                    (s (lambda () (set! x (* x x x)))))
+  </code></pre>

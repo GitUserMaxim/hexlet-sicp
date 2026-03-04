@@ -1,0 +1,21 @@
+name: 'The maximum depth of the stack and the total number of pushes used in evaluating n!'
+description: |
+  <p>For comparison with exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.26')) }}">5.26</a>
+  , explore the behavior of the following procedure for computing factorials recursively:</p>
+  <pre><code>(define (factorial n)
+    (if (= n 1)
+        1
+        (* (factorial (- n 1)) n)))
+  </code></pre>
+  <p>By running this procedure with the monitored stack, determine, as a function of 
+  <code>n</code>
+  , the maximum depth of the stack and the total number of pushes used in evaluating 
+  <code>n!</code>
+   for 
+  <code>n ≥ 1</code>
+  . (Again, these functions will be linear.) Summarize your experiments by filling in the following table with the appropriate expressions in terms of 
+  <code>n</code>
+  :
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/5_27.gif") }}" alt="5.27">
+  <p>The maximum depth is a measure of the amount of space used by the evaluator in carrying out the computation, and the number of pushes correlates well with the time required.</p>

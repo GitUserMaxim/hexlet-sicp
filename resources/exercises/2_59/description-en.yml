@@ -1,0 +1,6 @@
+name: 'Union-set for sets represented as unordered lists'
+description: |
+  <p>Implement the 
+  <code>union-set</code>
+   operation for the unordered-list representation of sets.
+  </p>

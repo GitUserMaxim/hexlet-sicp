@@ -1,0 +1,8 @@
+name: 'A generic raise operation'
+description: |
+  <p>Suppose you are designing a generic arithmetic system for dealing with the tower of types shown in figure 2.25: integer, rational, real, complex. For each type (except complex), design a procedure that raises objects of that type one level in the tower. Show how to install a generic 
+  <code>raise</code>
+   operation that will work for each type (except complex).
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/2_83.gif") }}" alt="2.83">
+  <p>Figure 2.25:  A tower of types.</p>

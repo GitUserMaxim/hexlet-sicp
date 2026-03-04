@@ -1,0 +1,15 @@
+name: 'Below procedure'
+description: |
+  <p>Define the 
+  <code>below</code>
+   operation for painters. 
+  <code>Below</code>
+   takes two painters as arguments. The resulting painter, given a frame, draws with the first painter in the bottom of the frame and with the second painter in the top. Define 
+  <code>below</code>
+   in two different ways -- first by writing a procedure that is analogous to the 
+  <code>beside</code>
+   procedure given above, and again in terms of 
+  <code>beside</code>
+   and suitable rotation operations (from exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.50')) }}">2.50</a>
+  ).</p>

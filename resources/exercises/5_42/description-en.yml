@@ -1,0 +1,22 @@
+name: 'Compile-variable and compile-assignment with lexical-address instructions'
+description: |
+  <p>Using 
+  <code>find-variable</code>
+   from exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.41')) }}">5.41</a>
+  , rewrite 
+  <code>compile-variable</code>
+   and 
+  <code>compile-assignment</code>
+   to output lexical-address instructions. In cases where 
+  <code>find-variable</code>
+   returns 
+  <code>not-found</code>
+   (that is, where the variable is not in the compile-time environment), you should have the code generators use the evaluator operations, as before, to search for the binding. (The only place a variable that is not found at compile time can be is in the global environment, which is part of the run-time environment but is not part of the compile-time environment. Thus, if you wish, you may have the evaluator operations look directly in the global environment, which can be obtained with the operation 
+  <code>(op get-global-environment)</code>
+  , instead of having them search the whole run-time environment found in 
+  <code>env</code>
+  .) Test the modified compiler on a few simple cases, such as the nested 
+  <code>lambda</code>
+   combination at the beginning of this section.
+  </p>

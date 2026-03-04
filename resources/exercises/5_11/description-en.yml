@@ -1,0 +1,76 @@
+name: 'Restore a register that was not the last one saved'
+description: |
+  <p>When we introduced 
+  <code>save</code>
+   and 
+  <code>restore</code>
+   in section 5.1.4, we didn't specify what would happen if you tried to restore a register that was not the last one saved, as in the sequence
+  </p>
+  <pre><code>(save y)
+  (save x)
+  (restore y)</code></pre>
+  <p>There are several reasonable possibilities for the meaning of 
+  <code>restore</code>
+  :
+  </p>
+  <p>a. 
+  <code>(restore y)</code>
+   puts into 
+  <code>y</code>
+   the last value saved on the stack, regardless of what register that value came from. This is the way our simulator behaves. Show how to take advantage of this behavior to eliminate one instruction from the Fibonacci machine of section 5.1.4 (figure 5.12).
+  </p>
+  <p>b. 
+  <code>(restore y)</code>
+   puts into 
+  <code>y</code>
+   the last value saved on the stack, but only if that value was saved from 
+  <code>y</code>
+  ; otherwise, it signals an error. Modify the simulator to behave this way. You will have to change 
+  <code>save</code>
+   to put the register name on the stack along with the value.
+  </p>
+  <p>c. 
+  <code>(restore y)</code>
+   puts into 
+  <code>y</code>
+   the last value saved from 
+  <code>y</code>
+   regardless of what other registers were saved after 
+  <code>y</code>
+   and not restored. Modify the simulator to behave this way. You will have to associate a separate stack with each register. You should make the 
+  <code>initialize-stack</code>
+   operation initialize all the register stacks.
+  </p>
+  <pre><code>(controller
+     (assign continue (label fib-done))
+   fib-loop
+     (test (op <) (reg n) (const 2))
+     (branch (label immediate-answer))
+     ;; set up to compute Fib(n - 1)
+     (save continue)
+     (assign continue (label afterfib-n-1))
+     (save n)                           ; save old value of n
+     (assign n (op -) (reg n) (const 1)); clobber n to n - 1
+     (goto (label fib-loop))            ; perform recursive call
+   afterfib-n-1                         ; upon return, val contains Fib(n - 1)
+     (restore n)
+     (restore continue)
+     ;; set up to compute Fib(n - 2)
+     (assign n (op -) (reg n) (const 2))
+     (save continue)
+     (assign continue (label afterfib-n-2))
+     (save val)                         ; save Fib(n - 1)
+     (goto (label fib-loop))
+   afterfib-n-2                         ; upon return, val contains Fib(n - 2)
+     (assign n (reg val))               ; n now contains Fib(n - 2)
+     (restore val)                      ; val now contains Fib(n - 1)
+     (restore continue)
+     (assign val                        ;  Fib(n - 1) +  Fib(n - 2)
+             (op +) (reg val) (reg n)) 
+     (goto (reg continue))              ; return to caller, answer is in val
+   immediate-answer
+     (assign val (reg n))               ; base case:  Fib(n) = n
+     (goto (reg continue))
+   fib-done)
+  </code></pre>
+  <p>Figure 5.12:  Controller for a machine to compute Fibonacci numbers.</p>

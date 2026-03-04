@@ -1,0 +1,8 @@
+name: 'Union-set for for sets represented as ordered lists'
+description: |
+  <p>Give a 
+  <code>Θ(n)</code>
+   implementation of 
+  <code>union-set</code>
+   for sets represented as ordered lists.
+  </p>

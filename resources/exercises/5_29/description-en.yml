@@ -1,0 +1,50 @@
+name: 'The stack operations in the tree-recursive Fibonacci computation'
+description: |
+  <p>Monitor the stack operations in the tree-recursive Fibonacci computation:</p>
+  <pre><code>(define (fib n)
+    (if (< n 2)
+        n
+        (+ (fib (- n 1)) (fib (- n 2)))))
+  </code></pre>
+  <p>a. Give a formula in terms of 
+  <code>n</code>
+   for the maximum depth of the stack required to compute 
+  <code>Fib(n)</code>
+   for 
+  <code>n ≥ 2</code>
+  . Hint: In section 1.2.2 we argued that the space used by this process grows linearly with 
+  <code>n</code>
+  .
+  </p>
+  <p>b. Give a formula for the total number of pushes used to compute 
+  <code>Fib(n)</code>
+   for 
+  <code>n ≥ 2</code>
+  . You should find that the number of pushes (which correlates well with the time used) grows exponentially with 
+  <code>n</code>
+  . Hint: Let 
+  <code>S(n)</code>
+   be the number of pushes used in computing 
+  <code>Fib(n)</code>
+  . You should be able to argue that there is a formula that expresses 
+  <code>S(n)</code>
+   in terms of 
+  <code>S(n − 1)</code>
+  , 
+  <code>S(n − 2)</code>
+  , and some fixed ''overhead'' constant 
+  <code>k</code>
+   that is independent of 
+  <code>n</code>
+  . Give the formula, and say what 
+  <code>k</code>
+   is. Then show that 
+  <code>S(n)</code>
+   can be expressed as 
+  <code>aFib(n + 1) + b</code>
+   and give the values of 
+  <code>a</code>
+   and 
+  <code>b</code>
+  .
+  </p>

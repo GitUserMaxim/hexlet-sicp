@@ -1,0 +1,8 @@
+name: 'Box-and-pointer structure'
+description: |
+  <p>Suppose we evaluate the expression 
+  <code>(list 1 (list 2 (list 3 4)))</code>
+  . Give the result printed by the interpreter, the corresponding box-and-pointer structure, and the interpretation of this as a tree (as in figure 2.6).
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/2_24.gif") }}" alt="2.24">
+  <p>Figure 2.6:  The list structure in figure 2.5 viewed as a tree.</p>

@@ -1,0 +1,26 @@
+name: 'Superfluous operations'
+description: |
+  <p>In evaluating a procedure application, the explicit-control evaluator always saves and restores the 
+  <code>env</code>
+   register around the evaluation of the operator, saves and restores 
+  <code>env</code>
+   around the evaluation of each operand (except the final one), saves and restores 
+  <code>argl</code>
+   around the evaluation of each operand, and saves and restores 
+  <code>proc</code>
+   around the evaluation of the operand sequence. For each of the following combinations, say which of these 
+  <code>save</code>
+   and 
+  <code>restore</code>
+   operations are superfluous and thus could be eliminated by the compiler's 
+  <code>preserving</code>
+   mechanism:
+  </p>
+  <pre><code>(f 'x 'y)
+
+  ((f) 'x 'y)
+
+  (f (g 'x) y)
+
+  (f (g 'x) 'y)
+  </code></pre>

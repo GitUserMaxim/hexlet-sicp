@@ -4,6 +4,7 @@ namespace App\Presenters;
 
 use App\Models\Exercise;
 use Hemp\Presenter\Presenter;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * @mixin Exercise
@@ -21,17 +22,21 @@ class ExercisePresenter extends Presenter
     public function getTitleAttribute(): string
     {
         $underscoredPath = $this->underscorePath;
+        $locale          = app()->getLocale();
+        $path            = resource_path("exercises/{$underscoredPath}/description-{$locale}.yml");
 
-        $titleTranslatePath = "exercises/{$underscoredPath}.title";
+        if (!file_exists($path)) {
+            return '';
+        }
 
-        return __($titleTranslatePath);
+        $data = Yaml::parseFile($path);
+        return $data['name'] ?? '';
     }
 
     public function getFullTitleAttribute(): string
     {
-        $path = $this->path;
+        $path          = $this->path;
         $exerciseTitle = $this->title;
-
         return "$path $exerciseTitle";
     }
 }

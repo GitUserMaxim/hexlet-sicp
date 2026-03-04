@@ -1,0 +1,47 @@
+name: 'Symbolic differentiation program with dispatching'
+description: |
+  <p>Section 2.3.2 described a program that performs symbolic differentiation:</p>
+  <pre><code>(define (deriv exp var)
+    (cond ((number? exp) 0)
+          ((variable? exp) (if (same-variable? exp var) 1 0))
+          ((sum? exp)
+           (make-sum (deriv (addend exp) var)
+                     (deriv (augend exp) var)))
+          ((product? exp)
+           (make-sum
+             (make-product (multiplier exp)
+                           (deriv (multiplicand exp) var))
+             (make-product (deriv (multiplier exp) var)
+                           (multiplicand exp))))
+          &lt;more rules can be added here&gt;
+          (else (error "unknown expression type -- DERIV" exp))))
+  </code></pre>
+  <p>We can regard this program as performing a dispatch on the type of the expression to be differentiated. In this situation the ''type tag'' of the datum is the algebraic operator symbol (such as 
+  <code>+</code>
+  ) and the operation being performed is 
+  <code>deriv</code>
+  . We can transform this program into data-directed style by rewriting the basic derivative procedure as
+  </p>
+  <pre><code>(define (deriv exp var)
+     (cond ((number? exp) 0)
+           ((variable? exp) (if (same-variable? exp var) 1 0))
+           (else ((get 'deriv (operator exp)) (operands exp)
+                                              var))))
+  (define (operator exp) (car exp))
+  (define (operands exp) (cdr exp))
+  </code></pre>
+  <p>a.  Explain what was done above. Why can't we assimilate the predicates 
+  <code>number?</code>
+   and 
+  <code>same-variable?</code>
+   into the data-directed dispatch?
+  </p>
+  <p>b.  Write the procedures for derivatives of sums and products, and the auxiliary code required to install them in the table used by the program above.</p>
+  <p>c.  Choose any additional differentiation rule that you like, such as the one for exponents (exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.56')) }}">2.56</a>
+  ), and install it in this data-directed system.</p>
+  <p>d.  In this simple algebraic manipulator the type of an expression is the algebraic operator that binds it together. Suppose, however, we indexed the procedures in the opposite way, so that the dispatch line in 
+  <code>deriv</code>
+   looked like</p>
+  <pre><code>((get (operator exp) 'deriv) (operands exp) var)
+  </code></pre>
+  <p>What corresponding changes to the derivative system are required?</p>

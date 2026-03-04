@@ -1,0 +1,15 @@
+name: 'Averager procedure'
+description: |
+  <p>
+      Using primitive multiplier, adder, and constant constraints, define a procedure
+      <code>averager</code>
+      that takes three connectors
+      <code>a</code>, <code>b</code>
+      and
+      <code>c</code> as inputs and establishes the constraint that the value of
+      <code>c</code>
+      is the average of the values of
+      <code>a</code>
+      and
+      <code>b</code>.
+  </p>

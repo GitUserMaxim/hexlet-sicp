@@ -1,0 +1,26 @@
+name: 'Representation of vectors'
+description: |
+  <p>A two-dimensional vector 
+  <code>v</code>
+   running from the origin to a point can be represented as a pair consisting of an 
+  <code>x</code>
+  -coordinate and a 
+  <code>y</code>
+  -coordinate. Implement a data abstraction for vectors by giving a constructor 
+  <code>make-vect</code>
+   and corresponding selectors 
+  <code>xcor-vect</code>
+   and 
+  <code>ycor-vect</code>
+  . In terms of your selectors and constructor, implement procedures 
+  <code>add-vect</code>
+  , 
+  <code>sub-vect</code>
+  , and 
+  <code>scale-vect</code>
+   that perform the operations vector addition, vector subtraction, and multiplying a vector by a scalar:
+  </p>
+  <pre><code>(x1, y1) + (x2, y2) = (x1 + x2, y1 + y2)
+  (x1, y1) − (x2, y2) = (x1 − x2, y1 − y2)
+             s·(x, y) = (sx, sy)
+  </code></pre>

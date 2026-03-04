@@ -1,0 +1,54 @@
+name: 'Процедура partial-tree'
+description: |
+  <p>Следующая процедура 
+  <code>list->tree</code>
+   преобразует упорядоченный список в сбалансированное бинарное дерево. Вспомогательная процедура 
+  <code>partial-tree</code>
+   принимает в качестве аргументов целое число 
+  <code>n</code>
+   и список по крайней мере из 
+  <code>n</code>
+   элементов, и строит сбалансированное дерево из первых 
+  <code>n</code>
+   элементов дерева. Результат, который возвращает 
+  <code>partial-tree</code>
+  , — это пара (построенная через 
+  <code>cons</code>
+  ), 
+  <code>car</code>
+   которой есть построенное дерево, а 
+  <code>cdr</code>
+   — список элементов, не включенных в дерево.
+  </p>
+  <pre><code>(define (list->tree elements)
+    (car (partial-tree elements (length elements))))
+
+  (define (partial-tree elts n)
+    (if (= n 0)
+        (cons '() elts)
+        (let ((left-size (quotient (- n 1) 2)))
+          (let ((left-result (partial-tree elts left-size)))
+            (let ((left-tree (car left-result))
+                  (non-left-elts (cdr left-result))
+                  (right-size (- n (+ left-size 1))))
+              (let ((this-entry (car non-left-elts))
+                    (right-result (partial-tree (cdr non-left-elts)
+                                                right-size)))
+                (let ((right-tree (car right-result))
+                      (remaining-elts (cdr right-result)))
+                  (cons (make-tree this-entry left-tree right-tree)
+                        remaining-elts))))))))
+  </code></pre>
+  <p>а. Дайте краткое описание, как можно более ясно объясняющее работу 
+  <code>partial-tree</code>
+  . Нарисуйте дерево, которое 
+  <code>list->tree</code>
+   строит из списка 
+  <code>(1 3 5 7 9 11)</code>
+  </p>
+  <p>б. Каков порядок роста по отношению к числу шагов, которые требуются процедуре 
+  <code>list->tree</code>
+   для преобразования дерева из 
+  <code>n</code>
+   элементов?
+  </p>

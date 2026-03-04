@@ -1,0 +1,14 @@
+name: 'Procedure for multiplying series'
+description: |
+  <p>With power series represented as streams of coefficients as in exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.59')) }}">3.59</a>
+  , adding series is implemented by 
+  <code>add-streams</code>
+  . Complete the definition of the following procedure for multiplying series:
+  </p>
+  <pre><code>(define (mul-series s1 s2)
+    (cons-stream &lt;??&gt; (add-streams &lt;??&gt; &lt;??&gt;)))
+  </code></pre>
+  <p>You can test your procedure by verifying that 
+  <code>sin²x + cos²x = 1</code>
+  , using the series from exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.59')) }}">3.59</a></p>

@@ -1,0 +1,12 @@
+name: 'Evaluate the operator using actual-value'
+description: |
+  <p>
+  <code>Eval</code>
+   uses 
+  <code>actual-value</code>
+   rather than 
+  <code>eval</code>
+   to evaluate the operator before passing it to 
+  <code>apply</code>
+  , in order to force the value of the operator. Give an example that demonstrates the need for this forcing.
+  </p>

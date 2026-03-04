@@ -1,0 +1,42 @@
+name: 'Селекторы комплексных чисел'
+description: |
+  <p>Хьюго Дум пытается вычислить выражение 
+  <code>(magnitude z)</code>
+  , где 
+  <code>z</code>
+   — объект, показанный на рис. 2.24. К своему удивлению, вместо ответа 
+  <code>5</code>
+   он получает сообщение об ошибке от 
+  <code>apply-generic</code>
+  , гласящее, что у операции 
+  <code>magnitude</code>
+   нет методов для типа 
+  <code>(complex)</code>
+  . Он показывает результат Лизе П. Хакер. Та заявляет: ''Дело в том, что селекторы комплексных чисел для чисел с меткой 
+  <code>complex</code>
+   определены не были, а были только для чисел с меткой 
+  <code>polar</code>
+   и 
+  <code>rectangular</code>
+  . Все, что требуется, чтобы заставить это работать — это добавить к пакету 
+  <code>complex</code>
+   следующее:''
+  </p>
+  <pre><code>(put 'real-part '(complex) real-part)
+  (put 'imag-part '(complex) imag-part)
+  (put 'magnitude '(complex) magnitude)
+  (put 'angle '(complex) angle)
+  </code></pre>
+  <p>Подробно опишите, почему это работает. В качестве примера, проследите все процедуры, которые вызываются при вычислении 
+  <code>(magnitude z)</code>
+  , где 
+  <code>z</code>
+   — объект, показанный на рис. 2.24. В частности, сколько раз вызывается 
+  <code>apply-generic</code>
+  ? На какую процедуру она диспетчирует в каждом случае?
+  </p>
+  <img class="img-fluid" src="{{ asset("images/exercises/2_77.gif") }}" alt="2.77">
+  <p>Рис. 2.24. Представление 
+  <code>3 + 4i</code>
+   в декартовой форме
+  </p>

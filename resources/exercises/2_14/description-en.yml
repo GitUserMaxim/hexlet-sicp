@@ -1,0 +1,13 @@
+name: 'Different answers for the two ways of computing formulas for parallel resistors'
+description: |
+  <p>Demonstrate that Lem is right. Investigate the behavior of the system on a variety of arithmetic expressions. Make some intervals 
+  <code>A</code>
+   and 
+  <code>B</code>
+  , and use them in computing the expressions 
+  <code>A/A</code>
+   and 
+  <code>A/B</code>
+  . You will get the most insight by using intervals whose width is a small percentage of the center value. Examine the results of the computation in center-percent form (see exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.12')) }}">2.12</a>
+  ).</p>

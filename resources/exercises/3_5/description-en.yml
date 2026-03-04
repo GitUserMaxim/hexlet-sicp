@@ -1,0 +1,54 @@
+name: 'Monte Carlo integration'
+description: |
+  <p>
+      Monte Carlo integration is a method of estimating definite integrals by means of Monte Carlo simulation. Consider computing the area of a region of space described by a predicate 
+      <code>P(x, y)</code>
+       that is true for points 
+      <code>(x, y)</code>
+       in the region and false for points not in the region. For example, the region contained within a circle of radius 
+      <code>3</code>
+       centered at 
+      <code>(5, 7)</code>
+       is described by the predicate that tests whether 
+      <code>(x - 5)&sup2; + (y - 7)&sup2; &le; 3&sup2;</code>
+      . To estimate the area of the region described by such a predicate, begin by choosing a rectangle that contains the region. For example, a rectangle with diagonally opposite corners at 
+      <code>(2, 4)</code>
+       and 
+      <code>(8, 10)</code>
+       contains the circle above. The desired integral is the area of that portion of the rectangle that lies in the region. We can estimate the integral by picking, at random, points 
+      <code>(x,y)</code>
+       that lie in the rectangle, and testing 
+      <code>P(x, y)</code>
+       for each point to determine whether the point lies in the region. If we try this with many points, then the fraction of points that fall in the region should give an estimate of the proportion of the rectangle that lies in the region. Hence, multiplying this fraction by the area of the entire rectangle should produce an estimate of the integral.
+  </p>
+  <p>
+      Implement Monte Carlo integration as a procedure 
+      <code>estimate-integral</code>
+       that takes as arguments a predicate 
+      <code>P</code>
+      , upper and lower bounds 
+      <code>x1, x2, y1</code>
+       and 
+      <code>y2</code>
+       for the rectangle, and the number of trials to perform in order to produce the estimate. Your procedure should use the same 
+      <code>monte-carlo</code>
+       procedure that was used above to estimate 
+      <code>&pi;</code>
+      . Use your 
+      <code>estimate-integral</code>
+       to produce an estimate of 
+      <code>&pi;</code>
+       by measuring the area of a unit circle.
+  </p>
+  <p>
+      You will find it useful to have a procedure that returns a number chosen at random from a given range. The following 
+      <code>random-in-range</code>
+      procedure implements this in terms of the 
+      <code>random</code>
+       procedure used in section 
+      <a href="{{ getChapterOriginLinkForNumber('1.2.6') }}">1.2.6</a>
+      , which returns a nonnegative number less than its input.
+  </p>
+  <pre><code>(define (random-in-range low high)
+      (let ((range (- high low)))
+          (+ low (random range))))</code></pre>

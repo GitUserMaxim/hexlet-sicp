@@ -1,0 +1,35 @@
+name: 'Modifying evaluator'
+description: |
+  <p>This section described how to modify the explicit-control evaluator so that interpreted code can call compiled procedures. Show how to modify the compiler so that compiled procedures can call not only primitive procedures and compiled procedures, but interpreted procedures as well. This requires modifying 
+  <code>compile-procedure-call</code>
+   to handle the case of compound (interpreted) procedures. Be sure to handle all the same 
+  <code>target</code>
+   and 
+  <code>linkage</code>
+   combinations as in 
+  <code>compile-proc-appl</code>
+  . To do the actual procedure application, the code needs to jump to the evaluator’s 
+  <code>compound-apply</code>
+   entry point. This label cannot be directly referenced in object code (since the assembler requires that all labels referenced by the code it is assembling be defined there), so we will add a register called 
+  <code>compapp</code>
+   to the evaluator machine to hold this entry point, and add an instruction to initialize it:
+  </p>
+  <pre><code>(assign compapp (label compound-apply))
+    ;; branches if flag is set:
+    (branch (label external-entry))
+  read-eval-print-loop …
+  </code></pre>
+  <p>To test your code, start by defining a procedure 
+  <code>f</code>
+   that calls a procedure 
+  <code>g</code>
+  . Use 
+  <code>compile-and-go</code>
+   to compile the definition of 
+  <code>f</code>
+   and start the evaluator. Now, typing at the evaluator, define 
+  <code>g</code>
+   and try to call 
+  <code>f</code>
+  .
+  </p>

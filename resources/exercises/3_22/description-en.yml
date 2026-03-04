@@ -1,0 +1,19 @@
+name: 'A queue as a procedure with local state'
+description: |
+  <p>
+      Instead of representing a queue as a pair of pointers, we can build a queue as a procedure with local state. The local state will consist of pointers to the beginning and the end of an ordinary list. Thus, the 
+      <code>make-queue</code>
+       procedure will have the form
+  </p>
+  <pre><code>(define (make-queue)
+    (let ((front-ptr ...)
+          (rear-ptr ...))
+      &lt;definitions of internal procedures&gt;
+      (define (dispatch m) ...)
+      dispatch))
+  </code></pre>
+  <p>
+      Complete the definition of 
+      <code>make-queue</code>
+       and provide implementations of the queue operations using this representation.
+  </p>

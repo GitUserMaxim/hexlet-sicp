@@ -1,0 +1,45 @@
+name: 'Implement internal definitions'
+description: |
+  <p>Ben Bitdiddle, Alyssa P. Hacker, and Eva Lu Ator are arguing about the desired result of evaluating the expression</p>
+  <pre><code>(let ((a 1))
+    (define (f x)
+      (define b (+ a x))
+      (define a 5)
+      (+ a b))
+    (f 10))</code></pre>
+  <p>Ben asserts that the result should be obtained using the sequential rule for 
+  <code>define</code>
+  : 
+  <code>b</code>
+   is defined to be 
+  <code>11</code>
+  , then 
+  <code>a</code>
+   is defined to be 
+  <code>5</code>
+  , so the result is 
+  <code>16</code>
+  . Alyssa objects that mutual recursion requires the simultaneous scope rule for internal procedure definitions, and that it is unreasonable to treat procedure names differently from other names. Thus, she argues for the mechanism implemented in exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('4.16')) }}">4.16</a>
+  . This would lead to 
+  <code>a</code>
+   being unassigned at the time that the value for 
+  <code>b</code>
+   is to be computed. Hence, in Alyssa's view the procedure should produce an error. Eva has a third opinion. She says that if the definitions are truly meant to be simultaneous, then the value 
+  <code>5</code>
+   for 
+  <code>a</code>
+   should be used in evaluating 
+  <code>b</code>
+  . Hence, in Eva's view 
+  <code>a</code>
+   should be 
+  <code>5</code>
+  , 
+  <code>b</code>
+   should be 
+  <code>15</code>
+  , and the result should be 
+  <code>20</code>
+  . Which (if any) of these viewpoints do you support? Can you devise a way to implement internal definitions so that they behave as Eva prefers?
+  </p>

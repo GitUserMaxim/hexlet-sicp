@@ -1,0 +1,16 @@
+name: 'Уникальные пары'
+description: |
+  <p>Определите процедуру 
+  <code>unique-pairs</code>
+  , которая, получая целое число 
+  <code>n</code>
+  , порождает последовательность пар 
+  <code>(i,j)</code>
+  , таких, что 
+  <code>1 ≤ j < i ≤ n</code>
+  . С помощью 
+  <code>unique-pairs</code>
+   упростите данное выше определение 
+  <code>prime-sum-pairs</code>
+  .
+  </p>

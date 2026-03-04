@@ -1,0 +1,16 @@
+name: 'Gcd and orders of evaluation'
+description: |
+  <p>The process that a procedure generates is of course dependent on the rules used by the interpreter. As an example, consider the iterative 
+  <code>gcd</code>
+   procedure given above. Suppose we were to interpret this procedure using normal-order evaluation, as discussed in section 1.1.5. (The normal-order-evaluation rule for 
+  <code>if</code>
+   is described in exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('1.5')) }}">1.5</a>
+  .) Using the substitution method (for normal order), illustrate the process generated in evaluating 
+  <code>(gcd 206 40)</code>
+   and indicate the remainder operations that are actually performed. How many 
+  <code>remainder</code>
+   operations are actually performed in the normal-order evaluation of 
+  <code>(gcd 206 40)</code>
+  ? In the applicative-order evaluation?
+  </p>

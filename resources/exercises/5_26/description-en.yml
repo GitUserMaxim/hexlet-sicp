@@ -1,0 +1,36 @@
+name: 'Exploration of the tail-recursive property of the evaluator'
+description: |
+  <p>Use the monitored stack to explore the tail-recursive property of the evaluator (section 5.4.2). Start the evaluator and define the iterative 
+  <code>factorial</code>
+   procedure from section 1.2.1:
+  </p>
+  <pre><code>(define (factorial n)
+    (define (iter product counter)
+      (if (> counter n)
+          product
+          (iter (* counter product)
+                (+ counter 1))))
+    (iter 1 1))
+  </code></pre>
+  <p>Run the procedure with some small values of 
+  <code>n</code>
+  . Record the maximum stack depth and the number of pushes required to compute 
+  <code>n!</code>
+   for each of these values.
+  </p>
+  <p>a. You will find that the maximum depth required to evaluate 
+  <code>n!</code>
+   is independent of 
+  <code>n</code>
+  . What is that depth?
+  </p>
+  <p>b. Determine from your data a formula in terms of 
+  <code>n</code>
+   for the total number of push operations used in evaluating 
+  <code>n!</code>
+   for any 
+  <code>n ≥ 1</code>
+  . Note that the number of operations used is a linear function of 
+  <code>n</code>
+   and is thus determined by two constants.
+  </p>

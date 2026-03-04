@@ -1,0 +1,23 @@
+name: 'Оптимизация queens'
+description: |
+  <p>У Хьюго Дума ужасные трудности при решении упражнения <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.42')) }}">2.42</a>
+  . Его процедура 
+  <code>queens</code>
+   вроде бы работает, но невероятно медленно. (Хьюго ни разу не удается дождаться, пока она решит хотя бы задачу 
+  <code>6 × 6</code>
+  .) Когда Хьюго просит о помощи Еву Лу Атор, она указывает, что он поменял местами порядок вложенных отображений в вызове процедуры 
+  <code>flatmap</code>
+  , записав его в виде
+  </p>
+  <pre><code>(flatmap
+   (lambda (new-row)
+     (map (lambda (rest-of-queens)
+            (adjoin-position new-row k rest-of-queens))
+          (queen-cols (- k 1))))
+   (enumerate-interval 1 board-size))
+  </code></pre>
+  <p>Объясните, почему из-за такой перестановки программа работает медленно. Оцените, насколько долго программа Хьюго будет решать задачу с восемью ферзями, если предположить, что программа, приведенная в упражнении <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.42')) }}">2.42</a>
+  , решает ее за время 
+  <code>T</code>
+  .
+  </p>

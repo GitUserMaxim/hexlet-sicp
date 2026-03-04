@@ -1,0 +1,10 @@
+name: 'Rewrite eval'
+description: |
+  <p>Rewrite 
+  <code>eval</code>
+   so that the dispatch is done in data-directed style. Compare this with the data-directed differentiation procedure of exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.73')) }}">2.73</a>
+  . (You may use the 
+  <code>car</code>
+   of a compound expression as the type of the expression, as is appropriate for the syntax implemented in this section.)
+  </p>

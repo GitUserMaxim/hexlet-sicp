@@ -1,0 +1,12 @@
+name: 'Order of pairs in the stream'
+description: |
+  <p>Examine the stream 
+  <code>(pairs integers integers)</code>
+  . Can you make any general comments about the order in which the pairs are placed into the stream? For example, about how many pairs precede the pair 
+  <code>(1, 100)</code>
+  ? the pair 
+  <code>(99, 100)</code>
+  ? the pair 
+  <code>(100, 100)</code>
+  ? (If you can make precise mathematical statements here, all the better. But feel free to give more qualitative answers if you find yourself getting bogged down.)
+  </p>

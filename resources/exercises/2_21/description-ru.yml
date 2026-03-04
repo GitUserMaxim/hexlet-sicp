@@ -1,0 +1,21 @@
+name: 'Список квадратов'
+description: |
+  <p>Процедура 
+  <code>square-list</code>
+   принимает в качестве аргумента список чисел и возвращает список квадратов этих чисел.
+  </p>
+  <pre><code>(square-list (list 1 2 3 4))
+  <i>(1 4 9 16)</i>
+  </code></pre>
+  <p>Перед Вами два различных определения 
+  <code>square-list</code>
+  . Закончите их, вставив пропущенные выражения:
+  </p>
+  <pre><code>(define (square-list items)
+    (if (null? items)
+        nil
+        (cons &lt;??&gt; &lt;??&gt;)))
+
+  (define (square-list2 items)
+    (map &lt;??&gt; &lt;??&gt;))
+  </code></pre>

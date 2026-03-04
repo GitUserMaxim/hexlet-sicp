@@ -1,0 +1,44 @@
+name: 'Named let'
+description: |
+  <p>«Named let» is a variant of 
+  <code>let</code>
+   that has the form
+  </p>
+  <pre><code>(let var bindings body)</code></pre>
+  <p>The 
+  <code>&lt;bindings&gt;</code>
+   and 
+  <code>&lt;body&gt;</code>
+   are just as in ordinary 
+  <code>let</code>
+  , except that 
+  <code>&lt;var&gt;</code>
+   is bound within 
+  <code>&lt;body&gt;</code>
+   to a procedure whose body is 
+  <code>&lt;body&gt;</code>
+   and whose parameters are the variables in the 
+  <code>&lt;bindings&gt;</code>
+  . Thus, one can repeatedly execute the 
+  <code>&lt;body&gt;</code>
+   by invoking the procedure named 
+  <code>&lt;var&gt;</code>
+  . For example, the iterative Fibonacci procedure (section 1.2.2) can be rewritten using named 
+  <code>let</code>
+   as follows:
+  </p>
+  <pre><code>(define (fib n)
+    (let fib-iter ((a 1)
+                   (b 0)
+                   (count n))
+      (if (= count 0)
+          b
+          (fib-iter (+ a b) a (- count 1)))))</code></pre>
+  <p>Modify 
+  <code>let->combination</code>
+   of exercise 
+  <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('4.6')) }}">4.6</a>
+   to also support named 
+  <code>let</code>
+  .
+  </p>
