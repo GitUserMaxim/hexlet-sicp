@@ -2,20 +2,17 @@
 
 namespace App\Github;
 
-use GrahamCampbell\GitHub\GitHubManager;
 use Github\Api\Gists;
+use Github\Client;
 
 class Github implements GithubInterface
 {
-    private $githubManager;
-
-    public function __construct(GitHubManager $githubManager)
+    public function __construct(private Client $githubClient)
     {
-        $this->githubManager = $githubManager;
     }
 
     public function gists(): Gists
     {
-        return $this->githubManager->gists();
+        return $this->githubClient->api('gists');
     }
 }
