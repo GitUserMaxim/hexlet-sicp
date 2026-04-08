@@ -12,8 +12,8 @@ class CommentHelper
     public static function getCommentableUrl(Comment $comment): string
     {
         $route = match ($comment->commentable_type) {
-            'App\Models\Chapter' => 'chapters.show',
-            'App\Models\Exercise' => 'exercises.show',
+            \App\Models\Chapter::class => 'chapters.show',
+            \App\Models\Exercise::class => 'exercises.show',
             default => throw new \Exception('Invalid commentable type'),
         };
 
