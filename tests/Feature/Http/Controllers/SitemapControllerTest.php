@@ -2,10 +2,8 @@
 
 namespace Tests\Feature\Http\Controllers;
 
-use App\Github\Github;
 use App\Github\GithubInterface;
 use Github\Api\Gists;
-use GrahamCampbell\GitHub\GitHubManager;
 use Tests\TestCase;
 
 class SitemapControllerTest extends TestCase

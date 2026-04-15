@@ -5,6 +5,7 @@ namespace App\Providers;
 use App;
 use App\Github\Github;
 use App\Github\GithubInterface;
+use Github\Client;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use URL;
@@ -27,6 +28,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->app->singleton(Client::class, function (): Client {
+            $githubClient = new Client();
+            $githubToken = (string) config('github.connections.main.token', '');
+
+            if ($githubToken !== '') {
+                $githubClient->authenticate($githubToken, null, Client::AUTH_ACCESS_TOKEN);
+            }
+
+            return $githubClient;
+        });
+
         if (config('logging.log_sql_queries')) {
             DB::listen(function ($query): void {
                     info($query->sql, [
