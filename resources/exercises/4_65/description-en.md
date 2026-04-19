@@ -1,0 +1,12 @@
+<p>Cy D. Fect, looking forward to the day when he will rise in the organization, gives a query to find all the wheels (using the wheel rule of section 4.4.1):</p>
+<pre><code>(wheel ?who)
+</code></pre>
+<p>To his surprise, the system responds</p>
+<pre><code>;;; Query results:
+(wheel (Warbucks Oliver))
+(wheel (Bitdiddle Ben))
+(wheel (Warbucks Oliver))
+(wheel (Warbucks Oliver))
+(wheel (Warbucks Oliver))
+</code></pre>
+<p>Why is Oliver Warbucks listed four times?</p>

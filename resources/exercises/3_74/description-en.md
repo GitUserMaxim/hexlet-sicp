@@ -1,0 +1,45 @@
+<p>Alyssa P. Hacker is designing a system to process signals coming from physical sensors. One important feature she wishes to produce is a signal that describes the zero crossings of the input signal. That is, the resulting signal should be 
+<code>+1</code>
+ whenever the input signal changes from negative to positive, 
+<code>-1</code>
+ whenever the input signal changes from positive to negative, and 
+<code>0</code>
+ otherwise. (Assume that the sign of a zero input is positive.) For example, a typical input signal with its associated zero crossing signal would be
+</p>
+<pre><code>...1  2  1.5  1  0.5  -0.1  -2  -3  -2  -0.5  0.2  3  4 ...
+...0  0   0   0    0    -1   0   0   0    0    1   0  0 ...
+</code></pre>
+<p>In Alyssa's system, the signal from the sensor is represented as a stream 
+<code>sense-data</code>
+ and the stream 
+<code>zero-crossings</code>
+ is the corresponding stream of zero crossings. Alyssa first writes a procedure 
+<code>sign-change-detector</code>
+ that takes two values as arguments and compares the signs of the values to produce an appropriate 
+<code>0</code>
+, 
+<code>1</code>
+, or 
+<code>-1</code>
+. She then constructs her zero crossing stream as follows:
+</p>
+<pre><code>(define (make-zero-crossings input-stream last-value)
+  (cons-stream
+   (sign-change-detector (stream-car input-stream) last-value)
+   (make-zero-crossings (stream-cdr input-stream)
+                        (stream-car input-stream))))
+
+(define zero-crossings (make-zero-crossings sense-data 0))
+</code></pre>
+<p>Alyssa's boss, Eva Lu Ator, walks by and suggests that this program is approximately equivalent to the following one, which uses the generalized version of 
+<code>stream-map</code>
+ from exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.50')) }}">3.50</a>
+:</p>
+<pre><code>(define zero-crossings
+  (stream-map sign-change-detector sense-data &lt;expression&gt;))
+</code></pre>
+<p>Complete the program by supplying the indicated 
+<code>&lt;expression&gt;</code>
+.
+</p>

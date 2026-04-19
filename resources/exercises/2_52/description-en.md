@@ -1,0 +1,25 @@
+<p>Make changes to the square limit of
+<code>wave</code>
+ shown in figure 2.9 by working at each of the levels described above. In particular:
+</p>
+<p>a.  Add some segments to the primitive 
+<code>wave</code>
+ painter of exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.49')) }}">2.49</a>
+ (to add a smile, for example).</p>
+<p>b.  Change the pattern constructed by 
+<code>corner-split</code>
+ (for example, by using only one copy of the 
+<code>up-split</code>
+ and 
+<code>right-split</code>
+ images instead of two).
+</p>
+<p>c.  Modify the version of 
+<code>square-limit</code>
+ that uses 
+<code>square-of-four</code>
+ so as to assemble the corners in a different pattern. (For example, you might make the big Mr. Rogers look outward from each corner of the square.)</p>
+<img class="img-fluid" src="{{ asset("images/exercises/2_52_1.gif") }}" alt="2.52_1">
+<img class="img-fluid" src="{{ asset("images/exercises/2_52_2.gif") }}" alt="2.52_2">
+<p>Figure 2.9:  Designs generated with the picture language.</p>

@@ -1,0 +1,7 @@
+<p>
+    Define an or-gate as a primitive function box. Your 
+    <CODE>or-gate</CODE>
+    constructor should be similar to 
+    <CODE>and-gate</CODE>.
+
+</p>

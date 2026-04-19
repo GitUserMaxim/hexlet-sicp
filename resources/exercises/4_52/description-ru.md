@@ -1,0 +1,23 @@
+<p>Реализуйте новую конструкцию 
+<code>if-fail</code>
+, которая позволяет пользователю перехватить неудачу при выполнении выражения. 
+<code>If-fail</code>
+ принимает два выражения. Первое она выполняет как обычно и, если вычисление успешно, возвращает его результат. Однако если вычисление неудачно, то возвращается значение второго выражения, как в следующем примере:
+</p>
+<pre><code>;;; Amb-Eval input:
+(if-fail (let ((x (an-element-of '(1 3 5))))
+           (require (even? x))
+           x)
+         'all-odd)
+;;; Starting a new problem
+;;; Amb-Eval value:
+<i>all-odd</i>
+;;; Amb-Eval input:
+(if-fail (let ((x (an-element-of '(1 3 5 8))))
+           (require (even? x))
+           x)
+         'all-odd)
+;;; Starting a new problem
+;;; Amb-Eval value:
+<i>8</i>
+</code></pre>

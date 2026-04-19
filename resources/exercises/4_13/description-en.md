@@ -1,0 +1,8 @@
+<p>Scheme allows us to create new bindings for variables by means of 
+<code>define</code>
+, but provides no way to get rid of bindings. Implement for the evaluator a special form 
+<code>make-unbound!</code>
+ that removes the binding of a given symbol from the environment in which the 
+<code>make-unbound!</code>
+ expression is evaluated. This problem is not completely specified. For example, should we remove only the binding in the first frame of the environment? Complete the specification and justify any choices you make.
+</p>

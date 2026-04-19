@@ -1,0 +1,71 @@
+<p>Define 
+<code>P₁</code>
+, 
+<code>P₂</code>
+, and 
+<code>P₃</code>
+ to be the polynomials
+</p>
+<pre><code>P<sub>1</sub>: x<sup>2</sup> − 2x + 1
+P<sub>2</sub>: 11x<sup>2</sup> + 1
+P<sub>3</sub>: 13x + 5
+</code></pre>
+<p>Now define 
+<code>Q1</code>
+ to be the product of 
+<code>P₁</code>
+ and 
+<code>P₂</code>
+ and 
+<code>Q₂</code>
+ to be the product of 
+<code>P₁</code>
+ and P₃
+<code>P₃</code>
+, and use 
+<code>greatest-common-divisor</code>
+ (exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.94')) }}">2.94</a>
+) to compute the GCD of 
+<code>Q₁</code>
+ and 
+<code>Q₂</code>
+. Note that the answer is not the same as 
+<code>P₁</code>
+. This example introduces noninteger operations into the computation, causing difficulties with the GCD algorithm. To understand what is happening, try tracing 
+<code>gcd-terms</code>
+ while computing the GCD or try performing the division by hand. 
+</p>
+<p>We can solve the problem exhibited in exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.95')) }}">2.95</a>
+ if we use the following modification of the GCD algorithm (which really works only in the case of polynomials with integer coefficients). Before performing any polynomial division in the GCD computation, we multiply the dividend by an integer constant factor, chosen to guarantee that no fractions will arise during the division process. Our answer will thus differ from the actual GCD by an integer constant factor, but this does not matter in the case of reducing rational functions to lowest terms; the GCD will be used to divide both the numerator and denominator, so the integer constant factor will cancel out.</p>
+<p>More precisely, if 
+<code>P</code>
+ and 
+<code>Q</code>
+ are polynomials, let 
+<code>O₁</code>
+ be the order of 
+<code>P</code>
+ (i.e., the order of the his largest term ) and let 
+<code>O₂</code>
+ be the order of 
+<code>Q</code>
+. Let 
+<code>c</code>
+ be the leading coefficient of 
+<code>Q</code>
+. Then it can be shown that, if we multiply 
+<code>P</code>
+ by the integerizing factor 
+<code>c^(1 + O₁ − O₂)</code>
+, the resulting polynomial can be divided by 
+<code>Q</code>
+ by using the 
+<code>div-terms</code>
+ algorithm without introducing any fractions. The operation of multiplying the dividend by this constant and then dividing is sometimes called the pseudodivision of 
+<code>P</code>
+ by 
+<code>Q</code>
+. The remainder of the division is called the pseudoremainder.
+</p>

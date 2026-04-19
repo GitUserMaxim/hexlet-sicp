@@ -1,0 +1,22 @@
+<p>Show how to extend the basic differentiator to handle more kinds of expressions. For instance, implement the differentiation rule</p>
+<img class="img-fluid" src="{{ asset("images/exercises/2_56.gif") }}" alt="2.56">
+<p>by adding a new clause to the 
+<code>deriv</code>
+ program and defining appropriate procedures 
+<code>exponentiation?</code>
+, 
+<code>base</code>
+, 
+<code>exponent</code>
+, and 
+<code>make-exponentiation</code>
+. (You may use the symbol 
+<code>**</code>
+ to denote exponentiation.) Build in the rules that anything raised to the power 
+<code>0</code>
+ is 
+<code>1</code>
+ and anything raised to the power 
+<code>1</code>
+ is the thing itself.
+</p>

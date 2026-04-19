@@ -1,0 +1,8 @@
+<p>The procedures 
+<code>set-variable-value!</code>
+, 
+<code>define-variable!</code>
+, and 
+<code>lookup-variable-value</code>
+ can be expressed in terms of more abstract procedures for traversing the environment structure. Define abstractions that capture the common patterns and redefine the three procedures in terms of these abstractions.
+</p>

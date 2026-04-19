@@ -1,0 +1,7 @@
+<p>Redefine 
+<code>count-leaves</code>
+ from section 2.2.2 as an accumulation:
+</p>
+<pre><code>(define (count-leaves t)
+  (accumulate &lt;??&gt; &lt;??&gt; (map &lt;??&gt; &lt;??&gt;)))
+</code></pre>

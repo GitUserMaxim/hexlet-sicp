@@ -1,0 +1,12 @@
+<p>Prove that 
+<code>Fib(n)</code>
+ is the closest integer to 
+<code>φⁿ/√5</code>
+, where 
+<code>φ = (1 + √5)/2</code>
+. Hint: Let 
+<code>ψ = (1 - √5)/2</code>
+. Use induction and the definition of the Fibonacci numbers (see section 1.2.2) to prove that 
+<code>Fib(n) = (φⁿ - ψⁿ)/√5</code>
+.
+</p>

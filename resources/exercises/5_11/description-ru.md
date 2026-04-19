@@ -1,0 +1,74 @@
+<p>Когда мы в разделе 5.1.4 определяли 
+<code>save</code>
+ и 
+<code>restore</code>
+, мы не указали, что произойдет, если попытаться восстановить значение не в том регистре, который был сохранен последним, как в последовательности команд
+</p>
+<pre><code>(save y)
+(save x)
+(restore y)</code></pre>
+<p>Есть несколько разумных вариантов значения 
+<code>restore</code>
+:
+</p>
+<p>а. 
+<code>(restore y)</code>
+ переносит в 
+<code>y</code>
+ последнее значение, сохраненное на стеке, независимо от того, откуда это значение взялось. Так работает наш имитатор. Покажите, как с помощью такого поведения убрать одну команду из машины Фибоначчи (раздел 5.1.4, рисунок 5.12).
+</p>
+<p>б. 
+<code>(restore y)</code>
+ переносит в 
+<code>y</code>
+ последнее значение, сохраненное на стеке, но только в том случае, когда это значение происходит из регистра 
+<code>y</code>
+; иначе возникает сообщение об ошибке. Модифицируйте имитатор и заставьте его вести себя таким образом. Придется изменить 
+<code>save</code>
+ так, чтобы он сохранял имя регистра вместе со значением.
+</p>
+<p>в. 
+<code>(restore y)</code>
+ переносит в 
+<code>y</code>
+ последнее значение, сохраненное из 
+<code>y</code>
+, независимо от того, какие другие регистры были сохранены и не восстановлены после 
+<code>y</code>
+. Модифицируйте имитатор так, чтобы он вел себя таким образом. С каждым регистром придется связать свой собственный стек. Операция 
+<code>initialize-stack</code>
+ должна инициализировать стеки всех регистров.
+</p>
+<pre><code>(controller
+   (assign continue (label fib-done))
+ fib-loop
+   (test (op <) (reg n) (const 2))
+   (branch (label immediate-answer))
+   ;; set up to compute Fib(n - 1)
+   (save continue)
+   (assign continue (label afterfib-n-1))
+   (save n)                           ; save old value of n
+   (assign n (op -) (reg n) (const 1)); clobber n to n - 1
+   (goto (label fib-loop))            ; perform recursive call
+ afterfib-n-1                         ; upon return, val contains Fib(n - 1)
+   (restore n)
+   (restore continue)
+   ;; set up to compute Fib(n - 2)
+   (assign n (op -) (reg n) (const 2))
+   (save continue)
+   (assign continue (label afterfib-n-2))
+   (save val)                         ; save Fib(n - 1)
+   (goto (label fib-loop))
+ afterfib-n-2                         ; upon return, val contains Fib(n - 2)
+   (assign n (reg val))               ; n now contains Fib(n - 2)
+   (restore val)                      ; val now contains Fib(n - 1)
+   (restore continue)
+   (assign val                        ;  Fib(n - 1) +  Fib(n - 2)
+           (op +) (reg val) (reg n)) 
+   (goto (reg continue))              ; return to caller, answer is in val
+ immediate-answer
+   (assign val (reg n))               ; base case:  Fib(n) = n
+   (goto (reg continue))
+ fib-done)
+</code></pre>
+<p>Рис. 5.12. Контроллер машины для вычисления чисел Фибоначчи</p>

@@ -1,0 +1,3 @@
+<p>Extend the instruction tracing of exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.16')) }}">5.16</a>
+ so that before printing an instruction, the simulator prints any labels that immediately precede that instruction in the controller sequence. Be careful to do this in a way that does not interfere with instruction counting (exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('5.15')) }}">5.15</a>
+). You will have to make the simulator retain the necessary label information.</p>

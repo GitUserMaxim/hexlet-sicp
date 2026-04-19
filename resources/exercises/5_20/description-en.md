@@ -1,0 +1,19 @@
+<p>Draw the box-and-pointer representation and the memory-vector representation (as in figure 5.14) of the list structure produced by</p>
+<pre><code>(define x (cons 1 2))
+
+(define y (list x x))
+</code></pre>
+<p>with the 
+<code>free</code>
+ pointer initially 
+<code>p1</code>
+. What is the final value of 
+<code>free</code>
+? What pointers represent the values of 
+<code>x</code>
+ and 
+<code>y</code>
+?
+</p>
+<img class="img-fluid" src="{{ asset("images/exercises/5_20.gif") }}" alt="5.20">
+<p>Figure 5.14:  Box-and-pointer and memory-vector representations of the list ((1 2) 3 4).</p>

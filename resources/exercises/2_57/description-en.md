@@ -1,0 +1,11 @@
+<p>Extend the differentiation program to handle sums and products of arbitrary numbers of (two or more) terms. Then the last example above could be expressed as</p>
+<pre><code>(deriv '(* x y (+ x 3)) 'x)
+</code></pre>
+<p>Try to do this by changing only the representation for sums and products, without changing the 
+<code>deriv</code>
+ procedure at all. For example, the 
+<code>addend</code>
+ of a sum would be the first term, and the 
+<code>augend</code>
+ would be the sum of the rest of the terms.
+</p>

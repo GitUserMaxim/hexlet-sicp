@@ -1,0 +1,32 @@
+<p>You can obtain an even more general version of 
+<code>accumulate</code>
+ (exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('1.32')) }}">1.32</a>
+) by introducing the notion of a filter on the terms to be combined. That is, combine only those terms derived from values in the range that satisfy a specified condition. The resulting 
+<code>filtered-accumulate</code>
+ abstraction takes the same arguments as 
+<code>accumulate</code>
+, together with an additional predicate of one argument that specifies the filter. Write 
+<code>filtered-accumulate</code>
+ as a procedure. Show how to express the following using 
+<code>filtered-accumulate</code>
+:
+</p>
+<p>a. the sum of the squares of the prime numbers in the interval 
+<code>a</code>
+ to 
+<code>b</code>
+ (assuming that you have a 
+<code>prime?</code>
+ predicate already written)
+</p>
+<p>b. the product of all the positive integers less than 
+<code>n</code>
+ that are relatively prime to 
+<code>n</code>
+ (i.e., all positive integers 
+<code>i < n</code>
+ such that GCD
+<code>(i, n) = 1</code>
+).
+</p>

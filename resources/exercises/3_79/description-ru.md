@@ -1,0 +1,8 @@
+<p>Обобщите процедуру 
+<code>solve-2nd</code>
+ из упражнения 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.78')) }}">3.78</a>
+ так, чтобы с ее помощью можно было решать дифференциальные уравнения второго порядка общего вида 
+<code>d²y/dt² = f(dy/dt, y)</code>
+.
+</p>

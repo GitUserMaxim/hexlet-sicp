@@ -1,0 +1,40 @@
+<p>Louis Reasoner tries to evaluate the expression 
+<code>(magnitude z)</code>
+ where 
+<code>z</code>
+ is the object shown in figure 2.24. To his surprise, instead of the answer 
+<code>5</code>
+ he gets an error message from 
+<code>apply-generic</code>
+, saying there is no method for the operation 
+<code>magnitude</code>
+ on the types 
+<code>(complex)</code>
+. He shows this interaction to Alyssa P. Hacker, who says ''The problem is that the complex-number selectors were never defined for 
+<code>complex</code>
+ numbers, just for 
+<code>polar</code>
+ and 
+<code>rectangular</code>
+ numbers. All you have to do to make this work is add the following to the 
+<code>complex</code>
+ package:''
+</p>
+<pre><code>(put 'real-part '(complex) real-part)
+(put 'imag-part '(complex) imag-part)
+(put 'magnitude '(complex) magnitude)
+(put 'angle '(complex) angle)
+</code></pre>
+<p>Describe in detail why this works. As an example, trace through all the procedures called in evaluating the expression 
+<code>(magnitude z)</code>
+ where 
+<code>z</code>
+ is the object shown in figure 2.24. In particular, how many times is 
+<code>apply-generic</code>
+ invoked? What procedure is dispatched to in each case?
+</p>
+<img class="img-fluid" src="{{ asset("images/exercises/2_77.gif") }}" alt="2.77">
+<p>Figure 2.24:  Representation of 
+<code>3 + 4i</code>
+ in rectangular form.
+</p>

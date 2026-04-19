@@ -1,0 +1,15 @@
+<p>
+    Modify the 
+    <code>make-account</code>
+     procedure so that it creates password-protected accounts. That is, 
+    <code>make-account</code>
+     should take a symbol as an additional argument, as in
+</p>
+<pre><code>(define acc (make-account 100 'secret-password))</code></pre>
+<p>
+    The resulting account object should process a request only if it is accompanied by the password with which the account was created, and should otherwise return a complaint:
+</p>
+<pre><code>((acc 'secret-password 'withdraw) 40)
+<i>60</i>
+((acc 'some-other-password 'deposit) 50)
+<i>"Incorrect password"</i></code></pre>

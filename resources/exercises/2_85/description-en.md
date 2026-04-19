@@ -1,0 +1,29 @@
+<p>This section mentioned a method for ''simplifying'' a data object by lowering it in the tower of types as far as possible. Design a procedure 
+<code>drop</code>
+ that accomplishes this for the tower described in exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.83')) }}">2.83</a>
+. The key is to decide, in some general way, whether an object can be lowered. For example, the complex number 
+<code>1.5 + 0i</code>
+ can be lowered as far as 
+<code>real</code>
+, the complex number 
+<code>1 + 0i</code>
+ can be lowered as far as 
+<code>integer</code>
+, and the complex number 
+<code>2 + 3i</code>
+ cannot be lowered at all. Here is a plan for determining whether an object can be lowered: Begin by defining a generic operation 
+<code>project</code>
+ that ''pushes'' an object down in the tower. For example, projecting a complex number would involve throwing away the imaginary part. Then a number can be dropped if, when we project it and raise the result back to the type we started with, we end up with something equal to what we started with. Show how to implement this idea in detail, by writing a 
+<code>drop</code>
+ procedure that drops an object as far as possible. You will need to design the various projection operations and install 
+<code>project</code>
+ as a generic operation in the system. You will also need to make use of a generic equality predicate, such as described in exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.79')) }}">2.79</a>
+. Finally, use 
+<code>drop</code>
+ to rewrite 
+<code>apply-generic</code>
+ from exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.84')) }}">2.84</a>
+ so that it ''simplifies'' its answers.</p>

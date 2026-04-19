@@ -1,0 +1,34 @@
+<p>Если бы мы не догадались, что конструкцию 
+<code>require</code>
+ можно реализовать как обычную процедуру с помощью 
+<code>amb</code>
+, так что пользователь сам может определить ее в своей недетерминистской программе, то нам пришлось бы задать эту конструкцию в виде особой формы. Потребовались бы синтаксические процедуры
+</p>
+<pre><code>(define (require? exp) (tagged-list? exp 'require))
+
+(define (require-predicate exp) (cadr exp))
+</code></pre>
+<p>новая ветвь разбора в 
+<code>analyze</code>
+:
+</p>
+<pre><code>((require? exp) (analyze-require exp))
+</code></pre>
+<p>а также процедура 
+<code>analyze-require</code>
+, которая обрабатывает выражения 
+<code>require</code>
+. Допишите следующее определение 
+<code>analyze-require</code>
+:
+</p>
+<pre><code>(define (analyze-require exp)
+  (let ((pproc (analyze (require-predicate exp))))
+    (lambda (env succeed fail)
+      (pproc env
+             (lambda (pred-value fail2)
+               (if &lt;??&gt;
+                   &lt;??&gt;
+                   (succeed 'ok fail2)))
+             fail))))
+</code></pre>

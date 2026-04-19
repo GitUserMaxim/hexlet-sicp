@@ -1,0 +1,17 @@
+<p>Suppose we define 
+<code>x</code>
+ and 
+<code>y</code>
+ to be two lists:
+</p>
+<pre><code>(define x (list 1 2 3))
+
+(define y (list 4 5 6))
+</code></pre>
+<p>What result is printed by the interpreter in response to evaluating each of the following expressions:</p>
+<pre><code>(append x y)
+
+(cons x y)
+
+(list x y)
+</code></pre>

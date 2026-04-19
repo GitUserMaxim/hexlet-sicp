@@ -1,0 +1,12 @@
+<p>Если степенной ряд представляется в виде потока своих коэффициентов, как в упражнении <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.59')) }}">3.59</a>
+, то сумма последовательностей реализуется посредством 
+<code>add-streams</code>
+. Завершите определение следующей процедуры для перемножения последовательностей:
+</p>
+<pre><code>(define (mul-series s1 s2)
+  (cons-stream &lt;??&gt; (add-streams &lt;??&gt; &lt;??&gt;)))
+</code></pre>
+<p>Можете проверить свою процедуру, убедившись, что 
+<code>sin²x + cos²x = 1</code>
+ с помощью последовательностей из упражнения 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.59')) }}">3.59</a></p>

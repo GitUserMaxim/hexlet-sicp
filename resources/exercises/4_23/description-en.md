@@ -1,0 +1,22 @@
+<p>Alyssa P. Hacker doesn't understand why 
+<code>analyze-sequence</code>
+ needs to be so complicated. All the other analysis procedures are straightforward transformations of the corresponding evaluation procedures (or 
+<code>eval</code>
+ clauses) in section 4.1.1. She expected 
+<code>analyze-sequence</code>
+ to look like this:
+</p>
+<pre><code>(define (analyze-sequence exps)
+  (define (execute-sequence procs env)
+    (cond ((null? (cdr procs)) ((car procs) env))
+          (else ((car procs) env)
+                (execute-sequence (cdr procs) env))))
+  (let ((procs (map analyze exps)))
+    (if (null? procs)
+        (error "Empty sequence -- ANALYZE"))
+    (lambda (env) (execute-sequence procs env))))</code></pre>
+<p>Eva Lu Ator explains to Alyssa that the version in the text does more of the work of evaluating a sequence at analysis time. Alyssa's sequence-execution procedure, rather than having the calls to the individual execution procedures built in, loops through the procedures in order to call them: In effect, although the individual expressions in the sequence have been analyzed, the sequence itself has not been.</p>
+<p>Compare the two versions of 
+<code>analyze-sequence</code>
+. For example, consider the common case (typical of procedure bodies) where the sequence has just one expression. What work will the execution procedure produced by Alyssa's program do? What about the execution procedure produced by the program in the text above? How do the two versions compare for a sequence with two expressions?
+</p>

@@ -1,0 +1,22 @@
+<p>
+<code>let</code>
+ expressions are derived expressions, because
+</p>
+<pre><code>(let ((var1 exp1) ... (varn expn))
+  body)</code></pre>
+<p>is equivalent to</p>
+<pre><code>((lambda (var1 ... varn)
+   body)
+ exp1
+ ...
+ expn)</code></pre>
+ <p>Implement a syntactic transformation 
+<code>let->combination</code>
+ that reduces evaluating 
+<code>let</code>
+ expressions to evaluating combinations of the type shown above, and add the appropriate clause to 
+<code>eval</code>
+ to handle 
+<code>let</code>
+ expressions.
+ </p>

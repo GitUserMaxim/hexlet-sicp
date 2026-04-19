@@ -1,0 +1,36 @@
+<p>Given a one-argument procedure 
+<code>p</code>
+ and an object 
+<code>a</code>
+, 
+<code>p</code>
+ is said to ''halt'' on 
+<code>a</code>
+ if evaluating the expression 
+<code>(p a)</code>
+ returns a value (as opposed to terminating with an error message or running forever). Show that it is impossible to write a procedure 
+<code>halts?</code>
+ that correctly determines whether 
+<code>p</code>
+ halts on 
+<code>a</code>
+ for any procedure 
+<code>p</code>
+ and object 
+<code>a</code>
+. Use the following reasoning: If you had such a procedure 
+<code>halts?</code>
+, you could implement the following program:
+</p>
+<pre><code>(define (run-forever) (run-forever))
+
+(define (try p)
+  (if (halts? p p)
+      (run-forever)
+      'halted))</code></pre>
+<p>Now consider evaluating the expression 
+<code>(try try)</code>
+ and show that any possible outcome (either halting or running forever) violates the intended behavior of 
+<code>halts?</code>
+.
+</p>

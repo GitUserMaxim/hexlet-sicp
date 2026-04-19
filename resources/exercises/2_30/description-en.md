@@ -1,0 +1,22 @@
+<p>Define a procedure 
+<code>square-tree</code>
+ analogous to the 
+<code>square-list</code>
+ procedure of exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.21')) }}">2.21</a>
+. That is, 
+<code>square-tree</code>
+ should behave as follows:
+</p>
+<pre><code>(square-tree
+ (list 1
+       (list 2 (list 3 4) 5)
+       (list 6 7)))
+<i>(1 (4 (9 16) 25) (36 49))</i>
+</code></pre>
+<p>Define 
+<code>square-tree</code>
+ both directly (i.e., without using any higher-order procedures) and also by using 
+<code>map</code>
+ and recursion.
+</p>

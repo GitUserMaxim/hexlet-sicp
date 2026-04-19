@@ -1,0 +1,23 @@
+<p>Ben has been generalizing the query system to provide statistics about the company. For example, to find the total salaries of all the computer programmers one will be able to say</p>
+<pre><code>(sum ?amount
+     (and (job ?x (computer programmer))
+          (salary ?x ?amount)))
+</code></pre>
+<p>In general, Ben's new system allows expressions of the form</p>
+<pre><code>(accumulation-function &lt;variable&gt;
+                       &lt;query pattern&gt;)
+</code></pre>
+<p>where 
+<code>accumulation-function</code>
+ can be things like 
+<code>sum</code>
+, 
+<code>average</code>
+, or 
+<code>maximum</code>
+. Ben reasons that it should be a cinch to implement this. He will simply feed the query pattern to 
+<code>qeval</code>
+. This will produce a stream of frames. He will then pass this stream through a mapping function that extracts the value of the designated variable from each frame in the stream and feed the resulting stream of values to the accumulation function. Just as Ben completes the implementation and is about to try it out, Cy walks by, still puzzling over the wheel query result in exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('4.65')) }}">4.65</a>
+. When Cy shows Ben the system's response, Ben groans, ''Oh, no, my simple accumulation scheme won't work!''</p>
+<p>What has Ben just realized? Outline a method he can use to salvage the situation.</p>

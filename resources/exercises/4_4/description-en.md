@@ -1,0 +1,26 @@
+<p>Recall the definitions of the special forms 
+<code>and</code>
+ and 
+<code>or</code>
+ from chapter 1:
+</p>
+<p>
+<code>and</code>
+: The expressions are evaluated from left to right. If any expression evaluates to false, false is returned; any remaining expressions are not evaluated. If all the expressions evaluate to true values, the value of the last expression is returned. If there are no expressions then true is returned.</p>
+<p>
+<code>or</code>
+: The expressions are evaluated from left to right. If any expression evaluates to a true value, that value is returned; any remaining expressions are not evaluated. If all expressions evaluate to false, or if there are no expressions, then false is returned.</p>
+<p>Install 
+<code>and</code>
+ and 
+<code>or</code>
+ as new special forms for the evaluator by defining appropriate syntax procedures and evaluation procedures 
+<code>eval-and</code>
+ and 
+<code>eval-or</code>
+. Alternatively, show how to implement 
+<code>and</code>
+ and 
+<code>or</code>
+ as derived expressions.
+</p>

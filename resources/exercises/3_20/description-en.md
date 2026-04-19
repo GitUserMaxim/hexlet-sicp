@@ -1,0 +1,12 @@
+<p>
+    Draw environment diagrams to illustrate the evaluation of the sequence of expressions
+</p>
+<pre><code>(define x (cons 1 2))
+(define z (cons x x))
+(set-car! (cdr z) 17)
+(car x)
+<i>17</i></code></pre>
+<p>
+     using the procedural implementation of pairs given above. (Compare exercise 
+    <a title="3.11" href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.11')) }}">3.11</a>.)
+</p>

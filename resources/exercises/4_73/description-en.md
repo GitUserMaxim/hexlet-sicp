@@ -1,0 +1,13 @@
+<p>Why does 
+<code>flatten-stream</code>
+ use 
+<code>delay</code>
+ explicitly? What would be wrong with defining it as follows:
+</p>
+<pre><code>(define (flatten-stream stream)
+  (if (stream-null? stream)
+      the-empty-stream
+      (interleave
+       (stream-car stream)
+       (flatten-stream (stream-cdr stream)))))
+</code></pre>

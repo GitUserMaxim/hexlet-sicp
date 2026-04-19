@@ -1,0 +1,14 @@
+<p>Give an interpretation of the stream computed by the following procedure:</p>
+<pre><code>(define (expand num den radix)
+  (cons-stream
+   (quotient (* num radix) den)
+   (expand (remainder (* num radix) den) den radix)))
+</code></pre>
+<p>(
+<code>quotient</code>
+ is a primitive that returns the integer quotient of two integers.) What are the successive elements produced by 
+<code>(expand 1 7 10)</code>
+ ? What is produced by 
+<code>(expand 3 8 10)</code>
+ ?
+</p>

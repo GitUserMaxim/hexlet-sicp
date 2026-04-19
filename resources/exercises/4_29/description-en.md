@@ -1,0 +1,21 @@
+<p>Exhibit a program that you would expect to run much more slowly without memoization than with memoization. Also, consider the following interaction, where the 
+<code>id</code>
+ procedure is defined as in exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('4.27')) }}">4.27</a>
+ and 
+<code>count</code>
+ starts at 
+<code>0</code>
+:
+</p>
+<pre><code>(define (square x)
+  (* x x))
+;;; L-Eval input:
+(square (id 10))
+;;; L-Eval value:
+&lt;response&gt;
+;;; L-Eval input:
+count
+;;; L-Eval value:
+&lt;response&gt;</code></pre>
+<p>Give the responses both when the evaluator memoizes and when it does not.</p>

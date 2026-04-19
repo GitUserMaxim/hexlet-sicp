@@ -1,0 +1,14 @@
+<p>Следующие правила определяют отношение 
+<code>next-to</code>
+, которое находит в списке соседние элементы:
+</p>
+<pre><code>(rule (?x next-to ?y in (?x ?y . ?u)))
+
+(rule (?x next-to ?y in (?v . ?z))
+      (?x next-to ?y in ?z))
+</code></pre>
+<p>Каков будет ответ на следующие запросы?</p>
+<pre><code>(?x next-to ?y in (1 (2 3) 4))
+
+(?x next-to 1 in (2 1 3 1))
+</code></pre>

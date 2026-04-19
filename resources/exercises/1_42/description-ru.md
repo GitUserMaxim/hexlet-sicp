@@ -1,0 +1,21 @@
+<p>Пусть 
+<code>f</code>
+ и 
+<code>g</code>
+ — две одноаргументные функции. По определению,композиция (composition) 
+<code>f</code>
+ и 
+<code>g</code>
+ есть функция 
+<code>x → f(g(x))</code>
+. Определите процедуру 
+<code>compose</code>
+ которая реализует композицию. Например, если 
+<code>inc</code>
+ — процедура, добавляющая к своему аргументу 
+<code>1</code>
+.
+</p>
+<pre><code>((compose square inc) 6)
+<i>49</i>
+</code></pre>

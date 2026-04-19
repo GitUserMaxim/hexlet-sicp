@@ -1,0 +1,7 @@
+<p>Переопределите 
+<code>count-leaves</code>
+ из раздела 2.2.2 в виде накопления:
+</p>
+<pre><code>(define (count-leaves t)
+  (accumulate &lt;??&gt; &lt;??&gt; (map &lt;??&gt; &lt;??&gt;)))
+</code></pre>

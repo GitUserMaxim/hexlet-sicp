@@ -1,0 +1,14 @@
+<p>Дайте интерпретацию потоку, порождаемому следующей процедурой:</p>
+<pre><code>(define (expand num den radix)
+  (cons-stream
+   (quotient (* num radix) den)
+   (expand (remainder (* num radix) den) den radix)))
+</code></pre>
+<p>(Элементарная процедура 
+<code>quotient</code>
+ возвращает целую часть частного двух целых чисел.) Каковы последовательные элементы потока, порожденного выражением 
+<code>(expand 1 7 10)</code>
+? Что дает вычисление 
+<code>(expand 3 8 10)</code>
+?
+</p>

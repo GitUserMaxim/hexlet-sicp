@@ -1,0 +1,17 @@
+<p>
+    Бен Битобор объясняет Хьюго, что один из способов избежать неприятностей в упражнении
+    <a title="3.34" href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.34')) }}">3.34</a>
+    — определить квадратор как новое элементарное ограничение. Заполните недостающие части в Беновой схеме процедуры, реализующей такое ограничение:
+</p>
+<pre><code>(define (squarer a b)
+  (define (process-new-value)
+    (if (has-value? b)
+        (if (< (get-value b) 0)
+            (error "square less than 0 -- SQUARER" (get-value b))
+            &lt;alternative1&gt;)
+        &lt;alternative2&gt;))
+  (define (process-forget-value) &lt;body1&gt;)
+  (define (me request) &lt;body2&gt;)
+  &lt;rest of definition&gt;
+  me)
+</code></pre>

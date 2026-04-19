@@ -1,0 +1,8 @@
+<p>Use the series</p>
+<img class="img-fluid" src="{{ asset("images/exercises/3_65.gif") }}" alt="3.65">
+<p>to compute three sequences of approximations to the natural logarithm of 
+<code>2</code>
+, in the same way we did above for 
+<code>π</code>
+. How rapidly do these sequences converge?
+</p>

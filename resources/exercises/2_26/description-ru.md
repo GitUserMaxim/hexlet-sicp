@@ -1,0 +1,17 @@
+<p>Допустим, мы определили 
+<code>x</code>
+ и 
+<code>y</code>
+ как два списка:
+</p>
+<pre><code>(define x (list 1 2 3))
+
+(define y (list 4 5 6))
+</code></pre>
+<p>Какой результат напечатает интерпретатор в ответ на следующие выражения:</p>
+<pre><code>(append x y)
+
+(cons x y)
+
+(list x y)
+</code></pre>

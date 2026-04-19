@@ -1,0 +1,14 @@
+<p>Допустим, что мы выполняем следующую последовательность действий в глобальном окружении:</p>
+<pre><code>(define a (make-connector))
+
+(define b (make-connector))
+
+(set-value! a 10 'user)
+</code></pre>
+<p>В какой-то момент при вычислении 
+<code>set-value!</code>
+ будет выполнено следующее выражение из внутренней процедуры соединителя:
+</p>
+<pre><code>(for-each-except setter inform-about-value constraints)
+</code></pre>
+<p>Нарисуйте диаграмму, изображающую окружение, в котором выполняется указанное выражение.</p>

@@ -1,0 +1,8 @@
+<p>Generalize the 
+<code>solve-2nd</code>
+ procedure of exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.78')) }}">3.78</a>
+ so that it can be used to solve general second-order differential equations 
+<code>d²y/dt² = f(dy/dt, y)</code>
+.
+</p>

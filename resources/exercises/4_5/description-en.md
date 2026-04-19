@@ -1,0 +1,22 @@
+<p>Scheme allows an additional syntax for 
+<code>cond</code>
+ clauses, 
+<code>(&lt;test&gt; => &lt;recipient&gt;)</code>
+. If 
+<code>&lt;test&gt;</code>
+ evaluates to a true value, then 
+<code>&lt;recipient&gt;</code>
+ is evaluated. Its value must be a procedure of one argument; this procedure is then invoked on the value of the 
+<code>&lt;test&gt;</code>
+, and the result is returned as the value of the 
+<code>cond</code>
+ expression. For example
+</p>
+<pre><code>(cond ((assoc ’b ’((a 1) (b 2))) => cadr)
+      (else false))</code></pre>
+<p>returns 
+<code>2</code>
+. Modify the handling of 
+<code>cond</code>
+ so that it supports this extended syntax.
+</p>

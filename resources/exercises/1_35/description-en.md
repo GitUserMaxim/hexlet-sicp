@@ -1,0 +1,10 @@
+<p>Show that the golden ratio 
+<code>φ</code>
+ (section 1.2.2) is a fixed point of the transformation 
+<code>x → 1 + 1/x</code>
+, and use this fact to compute 
+<code>φ</code>
+ by means of the 
+<code>fixed-point</code>
+ procedure.
+</p>

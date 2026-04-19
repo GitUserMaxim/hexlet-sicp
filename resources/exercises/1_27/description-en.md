@@ -1,0 +1,16 @@
+<p>Demonstrate that the Carmichael numbers (the smallest few are 561, 1105, 1729, 2465, 2821 and 6601) really do fool the Fermat test. That is, write a procedure 
+<code>carmichael-test</code>
+ that takes an integer 
+<code>n</code>
+ and tests whether 
+<code>a</code>
+ in the power of 
+<code>n</code>
+ is congruent to 
+<code>a</code>
+ modulo 
+<code>n</code>
+ for every 
+<code>a < n</code>
+, and try your procedure on the given Carmichael numbers. 
+</p>

@@ -1,0 +1,21 @@
+<p>Using 
+<code>div-terms</code>
+, implement the procedure 
+<code>remainder-terms</code>
+ and use this to define 
+<code>gcd-terms</code>
+ as above. Now write a procedure 
+<code>gcd-polys</code>
+ that computes the polynomial GCD of two polys. (The procedure should signal an error if the two polys are not in the same variable.) Install in the system a generic operation 
+<code>greatest-common-divisor</code>
+ that reduces to 
+<code>gcd-poly</code>
+ for polynomials and to ordinary 
+<code>gcd</code>
+ for ordinary numbers. As a test, try
+</p>
+<pre><code>(define p1 (make-polynomial 'x '((4 1) (3 -1) (2 -2) (1 2))))
+(define p2 (make-polynomial 'x '((3 1) (1 -1))))
+(greatest-common-divisor p1 p2)
+</code></pre>
+<p>and check your result by hand.</p>

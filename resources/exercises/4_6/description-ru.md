@@ -1,0 +1,22 @@
+<p>Выражения 
+<code>let</code>
+ производны, поскольку,
+</p>
+<pre><code>(let ((var1 exp1) ... (varn expn))
+  body)</code></pre>
+<p>эквивалентно</p>
+<pre><code>((lambda (var1 ... varn)
+   body)
+ exp1
+ ...
+ expn)</code></pre>
+ <p>Напишите синтаксическое преобразование 
+<code>let->combination</code>
+, которое сводит вычисление 
+<code>let</code>
+-выражений к вычислению комбинаций указанного вида, и добавьте соответствующую ветку для обработки 
+<code>eval</code>
+ c 
+<code>let</code>
+.
+ </p>

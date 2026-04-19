@@ -1,0 +1,15 @@
+<p>Suppose we define the procedure</p>
+<pre><code>(define (f g)
+  (g 2))
+</code></pre>
+<p>Then we have</p>
+<pre><code>(f square)
+<i>4</i>
+
+(f (lambda (z) (* z (+ z 1))))
+<i>6</i>
+</code></pre>
+<p>What happens if we (perversely) ask the interpreter to evaluate the combination 
+<code>(f f)</code>
+? Explain.
+</p>

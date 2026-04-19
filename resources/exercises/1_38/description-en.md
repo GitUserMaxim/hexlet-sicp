@@ -1,0 +1,20 @@
+<p>In 1737, the Swiss mathematician Leonhard Euler published a memoir De Fractionibus Continuis, which included a continued fraction expansion for 
+<code>e − 2</code>
+, where 
+<code>e</code>
+ is the base of the natural logarithms. In this fraction, the 
+<code>Ni</code>
+ are all 
+<code>1</code>
+, and the 
+<code>Di</code>
+ are successively 
+<code>1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, ...</code>
+ Write a program that uses your 
+<code>cont-frac</code>
+ procedure from exercise 
+<a href="{{ route('exercises.show', App\Models\Exercise::findByPath('1.37')) }}">1.37</a>
+ to approximate 
+<code>e</code>
+, based on Euler's expansion.
+</p>

@@ -1,0 +1,5 @@
+<p>Redo exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.5')) }}">3.5</a>
+ on Monte Carlo integration in terms of streams. The stream version of 
+<code>estimate-integral</code>
+ will not have an argument telling how many trials to perform. Instead, it will produce a stream of estimates based on successively more trials.
+</p>

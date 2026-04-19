@@ -1,0 +1,18 @@
+<p>What is the purpose of the 
+<code>let</code>
+ bindings in the procedures 
+<code>add-assertion!</code>
+ and 
+<code>add-rule!</code>
+? What would be wrong with the following implementation of 
+<code>add-assertion!</code>
+? Hint: Recall the definition of the infinite stream of ones in section 3.5.2: 
+<code>(define ones (cons-stream 1 ones))</code>
+.
+</p>
+<pre><code>(define (add-assertion! assertion)
+  (store-assertion-in-index assertion)
+  (set! THE-ASSERTIONS
+        (cons-stream assertion THE-ASSERTIONS))
+  'ok)
+</code></pre>

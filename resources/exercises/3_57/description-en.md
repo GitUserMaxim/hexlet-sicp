@@ -1,0 +1,14 @@
+<p>How many additions are performed when we compute the 
+<code>n</code>
+th Fibonacci number using the definition of 
+<code>fibs</code>
+ based on the 
+<code>add-streams</code>
+ procedure? Show that the number of additions would be exponentially greater if we had implemented 
+<code>(delay &lt;exp&gt;)</code>
+ simply as 
+<code>(lambda () &lt;exp&gt;)</code>
+, without using the optimization provided by the 
+<code>memo-proc</code>
+ procedure described in section 3.5.1.
+</p>

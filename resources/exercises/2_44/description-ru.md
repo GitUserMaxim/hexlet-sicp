@@ -1,0 +1,12 @@
+<p>Определите процедуру 
+<code>up-split</code>
+, которую использует 
+<code>corner-split</code>
+. Она подобна 
+<code>right-split</code>
+, но только меняет местами роли 
+<code>below</code>
+ и 
+<code>beside</code>
+.
+</p>

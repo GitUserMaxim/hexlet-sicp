@@ -1,0 +1,12 @@
+<p>Define the procedure 
+<code>up-split</code>
+ used by 
+<code>corner-split</code>
+. It is similar to 
+<code>right-split</code>
+, except that it switches the roles of 
+<code>below</code>
+ and 
+<code>beside</code>
+.
+</p>

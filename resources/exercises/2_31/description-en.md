@@ -1,0 +1,9 @@
+<p>Abstract your answer to exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('2.30')) }}">2.30</a>
+, to produce a procedure 
+<code>tree-map</code>
+ with the property that 
+<code>square-tree</code>
+ could be defined as
+</p>
+<pre><code>(define (square-tree tree) (tree-map square tree))
+</code></pre>

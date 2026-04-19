@@ -1,0 +1,12 @@
+<p>Define a procedure 
+<code>partial-sums</code>
+ that takes as argument a stream 
+<code>S</code>
+ and returns the stream whose elements are 
+<code>S₀, S₀ + S₁, S₀ + S₁ + S₂, ...</code>
+. For example, 
+<code>(partial-sums integers)</code>
+ should be the stream 
+<code>1, 3, 6, 10, 15 ...</code>
+.
+</p>

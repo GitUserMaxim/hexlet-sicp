@@ -1,0 +1,9 @@
+<p>
+    Draw box-and-pointer diagrams to explain the effect of 
+    <code>set-to-wow!</code>
+     on the structures 
+    <code>z1</code>
+     and 
+    <code>z2</code>
+     above.
+</p>

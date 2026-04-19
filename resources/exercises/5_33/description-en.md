@@ -1,0 +1,10 @@
+<p>Consider the following definition of a factorial procedure, which is slightly different from the one given above:</p>
+<pre><code>(define (factorial-alt n)
+  (if (= n 1)
+      1
+      (* n (factorial-alt (- n 1)))))
+</code></pre>
+<p>Compile this procedure and compare the resulting code with that produced for 
+<code>factorial</code>
+. Explain any differences you find. Does either program execute more efficiently than the other?
+</p>

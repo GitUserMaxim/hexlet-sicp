@@ -1,0 +1,12 @@
+<p>Define a procedure 
+<code>cubic</code>
+ that can be used together with the 
+<code>newtons-method</code>
+ procedure in expressions of the form
+</p>
+<pre><code>(newtons-method (cubic a b c) 1)
+</code></pre>
+<p>to approximate zeros of the cubic 
+<code>x³ + ax² + bx + c</code>
+.
+</p>

@@ -1,0 +1,19 @@
+<p>
+    In the table implementations above, the keys are tested for equality using 
+    <code>equal?</code>
+    (called by 
+    <code>assoc</code>).
+     This is not always the appropriate test. For instance, we might have a table with numeric keys in which we don't need an exact match to the number we're looking up, but only a number within some tolerance of it. Design a table constructor 
+    <code>make-table</code>,
+    that takes as an argument a 
+    <code>same-key?</code>
+    procedure that will be used to test ''equality'' of keys. 
+    <code>Make-table</code>
+    should return a 
+    <code>dispatch</code>
+    procedure that can be used to access appropriate 
+    <code>lookup</code>
+    and
+    <code>insert!</code>
+    procedures for a local table.
+</p>

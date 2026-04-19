@@ -1,0 +1,8 @@
+<p>Why do 
+<code>disjoin</code>
+ and 
+<code>stream-flatmap</code>
+ interleave the streams rather than simply append them? Give examples that illustrate why interleaving works better. (Hint: Why did we use 
+<code>interleave</code>
+ in section 3.5.3?)
+</p>

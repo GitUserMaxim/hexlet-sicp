@@ -1,0 +1,48 @@
+<p>In section 2.5.3 we saw how to implement a polynomial arithmetic system representing polynomials as lists of terms. In a similar way, we can work with power series, such as</p>
+<img class="img-fluid" src="{{ asset("images/exercises/3_59_1.gif") }}" alt="3.59_1">
+<p>represented as infinite streams. We will represent the series 
+<code>a₀ + a₁x + a₂x² + a₃x³ + ···</code>
+ as the stream whose elements are the coefficients 
+<code>a₀, a₁, a₂, a₃, ...</code>
+.
+</p>
+<p>a. The integral of the series 
+<code>a₀ + a₁x + a₂x² + a₃x³ + ···</code>
+ is the series
+</p>
+<img class="img-fluid" src="{{ asset("images/exercises/3_59_2.gif") }}" alt="3.59_2">
+<p>where 
+<code>c</code>
+ is any constant. Define a procedure 
+<code>integrate-series</code>
+ that takes as input a stream 
+<code>a₀, a₁, a₂, ...</code>
+ representing a power series and returns the stream 
+<code>a₀, (1/2)a₁, (1/3)a₂, ...</code>
+ of coefficients of the non-constant terms of the integral of the series. (Since the result has no constant term, it doesn't represent a power series; when we use 
+<code>integrate-series</code>
+, we will 
+<code>cons</code>
+ on the appropriate constant.)
+</p>
+<p>b. The function 
+<code>x → eˣ</code>
+ is its own derivative. This implies that 
+<code>eˣ</code>
+ and the integral of 
+<code>eˣ</code>
+ are the same series, except for the constant term, which is 
+<code>e⁰ = 1</code>
+. Accordingly, we can generate the series for 
+<code>eˣ</code>
+ as
+</p>
+<pre><code>(define exp-series
+  (cons-stream 1 (integrate-series exp-series)))
+</code></pre>
+<p>Show how to generate the series for sine and cosine, starting from the facts that the derivative of sine is cosine and the derivative of cosine is the negative of sine:</p>
+<pre><code>(define cosine-series
+  (cons-stream 1 &lt;??&gt;))
+(define sine-series
+  (cons-stream 0 &lt;??&gt;))
+</code></pre>

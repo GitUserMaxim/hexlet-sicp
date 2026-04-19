@@ -1,0 +1,8 @@
+<p>Extend the evaluator to handle derived expressions such as 
+<code>cond</code>
+, 
+<code>let</code>
+, and so on (section 4.1.2). You may ''cheat'' and assume that the syntax transformers such as 
+<code>cond->if</code>
+ are available as machine operations.
+</p>

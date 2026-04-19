@@ -1,0 +1,25 @@
+<p>The 
+<code>integral</code>
+ procedure used above was analogous to the ''implicit'' definition of the infinite stream of integers in section 3.5.2. Alternatively, we can give a definition of 
+<code>integral</code>
+ that is more like 
+<code>integers-starting-from</code>
+ (also in section 3.5.2):
+</p>
+<pre><code>(define (integral integrand initial-value dt)
+  (cons-stream initial-value
+               (if (stream-null? integrand)
+                   the-empty-stream
+                   (integral (stream-cdr integrand)
+                             (+ (* dt (stream-car integrand))
+                                initial-value)
+                             dt))))
+</code></pre>
+<p>When used in systems with loops, this procedure has the same problem as does our original version of 
+<code>integral</code>
+. Modify the procedure so that it expects the 
+<code>integrand</code>
+ as a delayed argument and hence can be used in the 
+<code>solve</code>
+ procedure shown above.
+</p>

@@ -1,0 +1,4 @@
+<p>Does the order of the restrictions in the 
+<code>multiple-dwelling</code>
+ procedure affect the answer? Does it affect the time to find an answer? If you think it matters, demonstrate a faster program obtained from the given one by reordering the restrictions. If you think it does not matter, argue your case.
+</p>

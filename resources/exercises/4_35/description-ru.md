@@ -1,0 +1,16 @@
+<p>Напишите процедуру 
+<code>an-integer-between</code>
+, которая возвращает целое число, лежащее между двумя заданными границами. С ее помощью можно следующим образом реализовать процедуру для поиска Пифагоровых троек, то есть троек чисел 
+<code>(i, j, k)</code>
+ между заданными границами, таких, что 
+<code>i ≤ j</code>
+ и 
+<code>i² + j² = k²</code>
+:
+</p>
+<pre><code>(define (a-pythagorean-triple-between low high)
+  (let ((i (an-integer-between low high)))
+    (let ((j (an-integer-between i high)))
+      (let ((k (an-integer-between j high)))
+        (require (= (+ (* i i) (* j j)) (* k k)))
+        (list i j k)))))</code></pre>

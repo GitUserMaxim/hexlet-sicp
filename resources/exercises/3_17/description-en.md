@@ -1,0 +1,7 @@
+<p>
+    Devise a correct version of the 
+    <code>count-pairs</code>
+     procedure of exercise 
+    <a title="3.16" href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.16')) }}">3.16</a>
+     that returns the number of distinct pairs in any structure. (Hint: Traverse the structure, maintaining an auxiliary data structure that is used to keep track of which pairs have already been counted.)
+</p>

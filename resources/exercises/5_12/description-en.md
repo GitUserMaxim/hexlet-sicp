@@ -1,0 +1,86 @@
+<p>The simulator can be used to help determine the data paths required for implementing a machine with a given controller. Extend the assembler to store the following information in the machine model:</p>
+<ul>
+    <li>a list of all instructions, with duplicates removed, sorted by instruction type (
+    <code>assign</code>
+    , 
+    <code>goto</code>
+    , and so on);
+    </li>
+    <li>a list (without duplicates) of the registers used to hold entry points (these are the registers referenced by 
+    <code>goto</code>
+     instructions);
+    </li>
+    <li>a list (without duplicates) of the registers that are 
+    <code>save</code>
+    d or 
+    <code>restore</code>
+    d;
+    </li>
+    <li>for each register, a list (without duplicates) of the sources from which it is assigned (for example, the sources for register 
+    <code>val</code>
+     in the factorial machine of figure 5.11 are 
+    <code>(const 1)</code>
+     and 
+    <code>((op *) (reg n) (reg val))</code>
+    ).
+    </li>
+</ul>
+<p>Extend the message-passing interface to the machine to provide access to this new information. To test your analyzer, define the Fibonacci machine from figure 5.12 and examine the lists you constructed.</p>
+<img class="img-fluid" src="{{ asset("images/exercises/5_12.gif") }}" alt="5.12">
+<pre><code>(controller
+   (assign continue (label fact-done))     ; set up final return address
+ fact-loop
+   (test (op =) (reg n) (const 1))
+   (branch (label base-case))
+   ;; Set up for the recursive call by saving n and continue.
+   ;; Set up continue so that the computation will continue
+   ;; at after-fact when the subroutine returns.
+   (save continue)
+   (save n)
+   (assign n (op -) (reg n) (const 1))
+   (assign continue (label after-fact))
+   (goto (label fact-loop))
+ after-fact
+   (restore n)
+   (restore continue)
+   (assign val (op *) (reg n) (reg val))   ; val now contains n(n - 1)!
+   (goto (reg continue))                   ; return to caller
+ base-case
+   (assign val (const 1))                  ; base case: 1! = 1
+   (goto (reg continue))                   ; return to caller
+ fact-done)
+</code></pre>
+<p>Figure 5.11:  A recursive factorial machine.</p>
+<pre><code>(controller
+   (assign continue (label fib-done))
+ fib-loop
+   (test (op <) (reg n) (const 2))
+   (branch (label immediate-answer))
+   ;; set up to compute Fib(n - 1)
+   (save continue)
+   (assign continue (label afterfib-n-1))
+   (save n)                           ; save old value of n
+   (assign n (op -) (reg n) (const 1)); clobber n to n - 1
+   (goto (label fib-loop))            ; perform recursive call
+ afterfib-n-1                         ; upon return, val contains Fib(n - 1)
+   (restore n)
+   (restore continue)
+   ;; set up to compute Fib(n - 2)
+   (assign n (op -) (reg n) (const 2))
+   (save continue)
+   (assign continue (label afterfib-n-2))
+   (save val)                         ; save Fib(n - 1)
+   (goto (label fib-loop))
+ afterfib-n-2                         ; upon return, val contains Fib(n - 2)
+   (assign n (reg val))               ; n now contains Fib(n - 2)
+   (restore val)                      ; val now contains Fib(n - 1)
+   (restore continue)
+   (assign val                        ;  Fib(n - 1) +  Fib(n - 2)
+           (op +) (reg val) (reg n))
+   (goto (reg continue))              ; return to caller, answer is in val
+ immediate-answer
+   (assign val (reg n))               ; base case:  Fib(n) = n
+   (goto (reg continue))
+ fib-done)
+</code></pre>
+<p>Figure 5.12:  Controller for a machine to compute Fibonacci numbers.</p>

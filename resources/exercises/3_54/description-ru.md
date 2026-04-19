@@ -1,0 +1,16 @@
+<p>Определите процедуру 
+<code>mul-streams</code>
+, аналогичную 
+<code>add-streams</code>
+, которая порождает поэлементное произведение двух входных потоков. С помощью нее и потока 
+<code>integers</code>
+ закончите следующее определение потока, 
+<code>n</code>
+-й элемент которого (начиная с 
+<code>0</code>
+) равен факториалу 
+<code>n + 1</code>
+:
+</p>
+<pre><code>(define factorials (cons-stream 1 (mul-streams &lt;??&gt; &lt;??&gt;)))
+</code></pre>

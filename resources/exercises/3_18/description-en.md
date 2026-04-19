@@ -1,0 +1,6 @@
+<p>
+    Write a procedure that examines a list and determines whether it contains a cycle, that is, whether a program that tried to find the end of the list by taking successive 
+    <code>cdr</code>s would go into an infinite loop. Exercise 
+    <a title="3.13" href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.13')) }}">3.13</a>
+     constructed such lists.
+</p>

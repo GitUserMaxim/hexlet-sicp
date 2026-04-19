@@ -1,0 +1,19 @@
+<p>Спроектируйте машину для вычисления квадратных корней методом Ньютона, как описано в разделе 1.1.7:</p>
+<pre><code>(define (sqrt x)
+  (define (good-enough? guess)
+    (< (abs (- (square guess) x)) 0.001))
+  (define (improve guess)
+    (average guess (/ x guess)))
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
+        guess
+        (sqrt-iter (improve guess))))
+  (sqrt-iter 1.0))</code></pre>
+<p>Для начала предположите, что операции 
+<code>good-enough?</code>
+ и 
+<code>improve</code>
+ имеются как примитивы. Затем покажите, как развернуть их с помощью арифметических операций. Опишите каждую из версий машины 
+<code>sqrt</code>
+, нарисовав диаграмму путей данных, и написав определение контроллера на языке регистровых машин.
+</p>

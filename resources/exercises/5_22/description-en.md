@@ -1,0 +1,7 @@
+<p>Exercise <a href="{{ route('exercises.show', App\Models\Exercise::findByPath('3.12')) }}">3.12</a>
+ of section 3.3.1 presented an 
+<code>append</code>
+ procedure that appends two lists to form a new list and an 
+<code>append!</code>
+ procedure that splices two lists together. Design a register machine to implement each of these procedures. Assume that the list-structure memory operations are available as primitive operations.
+</p>

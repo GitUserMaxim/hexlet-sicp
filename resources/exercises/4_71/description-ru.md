@@ -1,0 +1,23 @@
+<p>Хьюго Дум не понимает, почему процедуры 
+<code>simple-query</code>
+ и 
+<code>disjoin</code>
+ реализованы через явные операции 
+<code>delay</code>
+, а не следующим образом:
+</p>
+<pre><code>(define (simple-query query-pattern frame-stream)
+  (stream-flatmap
+   (lambda (frame)
+     (stream-append (find-assertions query-pattern frame)
+                    (apply-rules query-pattern frame)))
+   frame-stream))
+
+(define (disjoin disjuncts frame-stream)
+  (if (empty-disjunction? disjuncts)
+      the-empty-stream
+      (interleave
+       (qeval (first-disjunct disjuncts) frame-stream)
+       (disjoin (rest-disjuncts disjuncts) frame-stream))))
+</code></pre>
+<p>Можете ли Вы дать примеры запросов, с которыми эти простые определения приведут к нежелательному поведению?</p>

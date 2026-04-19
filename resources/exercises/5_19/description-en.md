@@ -1,0 +1,27 @@
+<p>Alyssa P. Hacker wants a breakpoint feature in the simulator to help her debug her machine designs. You have been hired to install this feature for her. She wants to be able to specify a place in the controller sequence where the simulator will stop and allow her to examine the state of the machine. You are to implement a procedure</p>
+<pre><code>(set-breakpoint &lt;machine&gt; &lt;label&gt; &lt;n&gt;)
+</code></pre>
+<p>that sets a breakpoint just before the 
+<code>n</code>
+th instruction after the given label. For example,
+</p>
+<pre><code>(set-breakpoint gcd-machine 'test-b 4)
+</code></pre>
+<p>installs a breakpoint in 
+<code>gcd-machine</code>
+ just before the assignment to register 
+<code>a</code>
+. When the simulator reaches the breakpoint it should print the label and the offset of the breakpoint and stop executing instructions. Alyssa can then use 
+<code>get-register-contents</code>
+ and 
+<code>set-register-contents!</code>
+ to manipulate the state of the simulated machine. She should then be able to continue execution by saying
+</p>
+<pre><code>(proceed-machine &lt;machine&gt;)
+</code></pre>
+<p>She should also be able to remove a specific breakpoint by means of</p>
+<pre><code>(cancel-breakpoint &lt;machine&gt; &lt;label&gt; &lt;n&gt;)
+</code></pre>
+<p>or to remove all breakpoints by means of</p>
+<pre><code>(cancel-all-breakpoints &lt;machine&gt;)
+</code></pre>

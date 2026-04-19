@@ -1,0 +1,34 @@
+<p>If we had not realized that 
+<code>require</code>
+ could be implemented as an ordinary procedure that uses 
+<code>amb</code>
+, to be defined by the user as part of a nondeterministic program, we would have had to implement it as a special form. This would require syntax procedures
+</p>
+<pre><code>(define (require? exp) (tagged-list? exp 'require))
+
+(define (require-predicate exp) (cadr exp))
+</code></pre>
+<p>and a new clause in the dispatch in 
+<code>analyze</code>
+:
+</p>
+<pre><code>((require? exp) (analyze-require exp))
+</code></pre>
+<p>as well the procedure 
+<code>analyze-require</code>
+ that handles 
+<code>require</code>
+ expressions. Complete the following definition of 
+<code>analyze-require</code>
+.
+</p>
+<pre><code>(define (analyze-require exp)
+  (let ((pproc (analyze (require-predicate exp))))
+    (lambda (env succeed fail)
+      (pproc env
+             (lambda (pred-value fail2)
+               (if &lt;??&gt;
+                   &lt;??&gt;
+                   (succeed 'ok fail2)))
+             fail))))
+</code></pre>

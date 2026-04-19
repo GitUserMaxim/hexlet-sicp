@@ -1,0 +1,36 @@
+<p>Процедура 
+<code>celsius-fahrenheit-converter</code>
+ выглядит громоздко по сравнению со стилем определения в формате выражения:
+</p>
+<pre><code>(define (celsius-fahrenheit-converter x)
+  (c+ (c* (c/ (cv 9) (cv 5))
+          x)
+      (cv 32)))
+
+(define C (make-connector))
+
+(define F (celsius-fahrenheit-converter C))
+</code></pre>
+<p>Здесь 
+<code>c+</code>
+, 
+<code>c*</code>
+ и т. п. — «ограничительные» версии арифметических операций. Например, 
+<code>c+</code>
+ берет в виде аргументов два соединителя, и возвращает соединитель, который связан с ними ограничением-сумматором:
+</p>
+<pre><code>(define (c+ x y)
+  (let ((z (make-connector)))
+    (adder x y z)
+    z))
+</code></pre>
+<p>Определите аналогичные процедуры для 
+<code>c-</code>
+, 
+<code>c*</code>
+, 
+<code>c/</code>
+ и 
+<code>cv</code>
+ (константа), так, чтобы можно было определять составные ограничения, как в вышеприведенном примере.
+</p>

@@ -1,0 +1,12 @@
+<p>One way to understand the compiler's 
+<code>preserving</code>
+ mechanism for optimizing stack usage is to see what extra operations would be generated if we did not use this idea. Modify 
+<code>preserving</code>
+ so that it always generates the 
+<code>save</code>
+ and 
+<code>restore</code>
+ operations. Compile some simple expressions and identify the unnecessary stack operations that are generated. Compare the code to that generated with the 
+<code>preserving</code>
+ mechanism intact.
+</p>

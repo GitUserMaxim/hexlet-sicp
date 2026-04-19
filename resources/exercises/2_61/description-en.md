@@ -1,0 +1,6 @@
+<p>Give an implementation of 
+<code>adjoin-set</code>
+ using the ordered representation. By analogy with 
+<code>element-of-set?</code>
+ show how to take advantage of the ordering to produce a procedure that requires on the average about half as many steps as with the unordered representation.
+</p>

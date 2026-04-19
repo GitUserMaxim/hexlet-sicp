@@ -1,0 +1,16 @@
+<p>Suppose that (in ordinary applicative-order Scheme) we define 
+<code>unless</code>
+ as shown above and then define 
+<code>factorial</code>
+ in terms of 
+<code>unless</code>
+ as
+</p>
+<pre><code>(define (factorial n)
+  (unless (= n 1)
+          (* n (factorial (- n 1)))
+          1))</code></pre>
+<p>What happens if we attempt to evaluate 
+<code>(factorial 5)</code>
+? Will our definitions work in a normal-order language?
+</p>
