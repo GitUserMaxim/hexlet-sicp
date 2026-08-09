@@ -31,7 +31,7 @@ class Chapter extends Model
 
     public function comments(): MorphMany
     {
-        return $this->morphMany('\App\Models\Comment', 'commentable');
+        return $this->morphMany(\App\Models\Comment::class, 'commentable');
     }
 
     public function parent(): BelongsTo

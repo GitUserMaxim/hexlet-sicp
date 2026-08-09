@@ -58,12 +58,12 @@ class Comment extends Model
 
     public function replies(): HasMany
     {
-        return $this->hasMany('App\Models\Comment', 'parent_id');
+        return $this->hasMany(\App\Models\Comment::class, 'parent_id');
     }
 
     public function parent(): BelongsTo
     {
-        return $this->belongsTo('App\Models\Comment', 'parent_id');
+        return $this->belongsTo(\App\Models\Comment::class, 'parent_id');
     }
 
     public function isReply(): bool
